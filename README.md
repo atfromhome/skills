@@ -68,7 +68,7 @@ Zero config works. A repo can override defaults with `.vflow.yml` or a `## vflow
 ## Repo layout
 
 - `skills/`: the installable skills
-- `evals/`: trigger and behaviour evals per skill (not installed)
+- `evals/`: trigger and behaviour evals per skill (not installed). Run them with Claude Code via `evals/vtest.py`; see `evals/VTEST.md`.
 - `.github/workflows/validate.yml`: frontmatter check and TLC run on the example model
 
 ## License
