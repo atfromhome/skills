@@ -27,6 +27,7 @@ Yang tidak diubah: kode, nama fungsi, perintah terminal, path file, kutipan lang
 1. **Kenali pembacanya.** Siapa yang membaca, apa yang ingin mereka lakukan atau putuskan, dan di mana mereka membacanya (layar ponsel, email, papan pengumuman). Kalau tidak jelas, anggap pembacanya orang dewasa umum yang sibuk dan membaca di ponsel.
 2. **Tulis intinya dulu dalam satu kalimat.** Kalau intinya belum bisa ditulis dalam satu kalimat, isinya yang belum jelas, bukan bahasanya. Tanyakan ke pemberi tugas.
 3. **Susun dengan piramida terbalik.** Kesimpulan atau tindakan di depan, rincian di tengah, latar belakang di belakang. Pola ini berlaku untuk dokumen, bagian, paragraf, sampai kalimat.
+   Untuk pengumuman dan instruksi, kalimat pertama menyebut apa yang harus dilakukan pembaca dan batas waktunya, dalam kalimat aktif yang menyapa pembaca langsung: "Mulai 5 Januari 2027, daftar ulang lewat aplikasi dan unggah foto KK paling lambat 20 Januari." Dua langkah berurutan dari satu tindakan (daftar lalu unggah) tetap satu ide dan boleh di satu kalimat.
 4. **Tulis drafnya** dengan prinsip di bawah.
 5. **Uji dengan RASA** dan **cek akhir**. Perbaiki, lalu serahkan.
 
@@ -49,6 +50,7 @@ Saat menulis ulang teks orang lain, pertahankan semua fakta, angka, tenggat, dan
 
 **Sapaan dan nada**
 - Pilih satu sapaan dan konsisten dalam satu produk. Untuk produk yang santai seperti Zekaa ("Zekaa, kelola tanpa ribet"), pakai "kamu". Untuk organisasi, pakai "kami".
+- Kalau pemberi tugas menyebut sapaan, sapaan itu harus benar-benar muncul di teks, setidaknya sekali ("kamu" atau "-mu"). Kalimat santai tanpa sapaan belum menunjukkan nadanya.
 - Santai bukan berarti asal. Hindari singkatan chat ("yg", "gmn") dan bahasa gaul yang cepat basi.
 
 ## Bahasa yang aman dan inklusif
@@ -74,7 +76,7 @@ Untuk format: pakai judul dan daftar untuk struktur, bukan cetak tebal atau huru
 
 Pola untuk tombol, error, empty state, sukses, konfirmasi, form, dan notifikasi ada di `references/ui-copy.md`. Tiga aturan yang paling sering dipakai:
 - Tombol memakai kata kerja yang menyebut hasilnya: "Kirim laporan", bukan "OK" atau "Submit".
-- Pesan error berisi tiga hal: apa yang terjadi, tanpa menyalahkan, dan apa yang bisa dilakukan sekarang.
+- Pesan error berisi tiga hal: apa yang terjadi, tanpa menyalahkan, dan apa yang bisa dilakukan sekarang. Kalau gagalnya di tengah alur (unggah, form, pembayaran) dan memang ada yang tetap aman, sebutkan: "Data lainnya tetap tersimpan." Jangan menulis kalimat ini kalau belum pasti benar.
 - Konfirmasi untuk tindakan berbahaya menyebut akibatnya dengan spesifik.
 
 ## Kalimat yang terasa Indonesia
@@ -118,7 +120,7 @@ Sebelum menyerahkan, pastikan:
 - [ ] Orang yang baru pertama membaca paham setiap kalimat tanpa membaca ulang.
 - [ ] Kalimat aktif, pendek, satu ide. Tidak ada kata yang bisa dibuang tanpa mengubah makna.
 - [ ] Semua fakta, angka, dan tenggat dari teks asal masih ada dan benar.
-- [ ] Tidak ada jargon tanpa penjelasan, tidak ada penekanan dengan huruf kapital.
+- [ ] Tidak ada jargon tanpa penjelasan, tidak ada penekanan dengan huruf kapital. Ini termasuk istilah yang dipakai pemberi tugas sendiri (misalnya "cloud" atau "server" dalam permintaan): pembaca akhirnya belum tentu tahu artinya.
 - [ ] Aman dibaca orang yang sedang panik, sedih, atau kesulitan dengan angka.
 - [ ] Bebas stigma dan anggapan tentang "normal".
 - [ ] Lulus keempat pertanyaan RASA.
