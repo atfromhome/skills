@@ -26,7 +26,7 @@ One issue labelled `wayfinder:map` is the **index**: Destination, Notes, Decisio
 3. If the breadth pass finds **no fog**, stop: say the effort fits one session and suggest `grill` (if decisions are still open) or `spec`.
 4. Create the map, then the tickets you can state precisely now, then wire blocking edges in a second pass with real ids.
 5. Start `research` tickets in parallel subagents if available; findings go on a throwaway `research/<name>` branch (never the default branch, no PR) linked from the ticket.
-6. Stop. Charting resolves nothing by hand.
+6. Stop. Charting resolves nothing by hand. Working the first non-research ticket starts only when the human explicitly asks for that ticket, ideally in a new session; a general "yes" or "continue" after the map is shown is not that request.
 
 ## Work the map (each later session)
 
