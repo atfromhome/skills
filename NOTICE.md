@@ -1,6 +1,6 @@
 # NOTICE
 
-Skills in this repository (`skills/flow`, `chart`, `grill`, `spec`, `prove`, `slice`) form the **vflow** family (verified flow). Each skill folder also carries its own NOTICE.md so the attribution travels with a single copied skill.
+Skills in this repository (`skills/flow`, `chart`, `grill`, `spec`, `prove`, `slice`) form the **vflow** family (verified flow). `skills/lugas` is a standalone writing skill outside that family. Each skill folder also carries its own NOTICE.md so the attribution travels with a single copied skill.
 
 ## Derived from
 
@@ -8,6 +8,10 @@ Orchestration of the flow formed by mattpocock/skills (`wayfinder`, `grilling`, 
 
 Upstream snapshots read: mattpocock/skills @ `5863806dd4e15c63174bee4e7515a4256792ecfa`, cursor/plugins (pstack) @ `bf0c7cd80abdbf7fe47b634978a7d1b4071f71a7`, obra/superpowers v6.1.1 (plugin cache snapshot `d884ae04edebef577e82ff7c4e143debd0bbec99`), anthropics/skills @ `e4bb5d960d87126ff3b3a8af1a104b7db67560ba`.
 Authoring followed the guidance in anthropics/skills `skill-creator` (Apache-2.0); no files from it are included.
+
+## lugas
+
+Inspired by the `bahasa-indonesia-plain` gist by orepras: https://gist.github.com/orepras/3e1ca8974fc51d11825f142fa6a66635. No text copied; `skills/lugas` was written from scratch under this repository's MIT license. The RASA framework name and concept (Ritmis, Akurat, Sarat Makna, Alami) are credited to that source.
 
 ## Changes
 

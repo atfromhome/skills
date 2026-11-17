@@ -1,0 +1,50 @@
+{
+  "skill_name": "lugas",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Tolong bikin lebih lugas paragraf ini buat pengumuman ke wali santri: \"Dengan ini kami sampaikan bahwa dalam rangka optimalisasi pelayanan administrasi, maka terhitung sejak tanggal 01/12/2026 pembayaran SPP wajib dilakukan melalui transfer bank dan bukti pembayaran agar diunggah pada aplikasi selambat-lambatnya tanggal 10 setiap bulannya, apabila terdapat kendala dapat menghubungi bagian TU.\"",
+      "expected_output": "A short rewrite that leads with the action (pay SPP by bank transfer starting 1 December 2026, upload proof by the 10th each month), splits ideas into short active sentences, replaces bureaucratic phrases, writes the date in full, keeps every fact, and says how to contact TU; plus a brief note of main changes and anything to confirm.",
+      "files": [],
+      "expectations": [
+        "Puts the main action (pay SPP by bank transfer, upload proof) in the first sentence",
+        "Keeps every fact: start date 1 December 2026, transfer only, upload in the app, deadline the 10th of each month, contact TU for problems",
+        "Writes the date as '1 Desember 2026' instead of '01/12/2026'",
+        "Removes bureaucratic phrases such as 'dengan ini kami sampaikan bahwa', 'dalam rangka optimalisasi', 'terhitung sejak', 'apabila'",
+        "Uses short, mostly active sentences with one idea each (none longer than about 25 words)",
+        "Does not invent facts (for example a TU phone number) and flags missing details instead",
+        "Adds a short note of the main changes or questions to confirm"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Bikinin pesan error buat Zekaa (nada santai, sapaan kamu) waktu upload foto bukti transfer gagal karena filenya lebih dari 5 MB. Sekarang tulisannya: \"ERROR: File size exceeded. Upload failed.\"",
+      "expected_output": "An Indonesian error message that says what happened (file too big, limit 5 MB), does not blame the user, says what to do next (compress or choose another photo), uses 'kamu', no all-caps or exclamation stacking, with a clear button label.",
+      "files": [],
+      "expectations": [
+        "Writes the message in Indonesian with the casual 'kamu' address",
+        "States what happened and the 5 MB limit concretely",
+        "Does not blame the user (no 'kamu salah' or 'gagal karena kamu')",
+        "Tells the user what to do next (compress, crop, or pick another photo)",
+        "Avoids all-caps, 'ERROR', and multiple exclamation marks",
+        "Suggests a button or action label that names the outcome (for example 'Pilih foto lain') instead of 'OK'",
+        "Reassures that nothing else was lost if relevant, without fake urgency"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Admin yayasan kami bukan orang IT. Jelaskan ke dia kenapa aplikasi perlu 'backup database harian' dan apa bedanya dengan 'sinkronisasi ke cloud'. Maksimal 150 kata.",
+      "expected_output": "A plain explanation for a non-technical foundation admin: answer first, everyday analogies, technical terms explained on first use, clear difference between a daily backup copy and live sync, a concrete consequence, within 150 words.",
+      "files": [],
+      "expectations": [
+        "Leads with the answer (why a daily backup matters) in the first sentence or two",
+        "Explains 'backup' and 'sinkronisasi/cloud' in everyday words on first use, or replaces them with Indonesian equivalents",
+        "Makes the difference concrete: sync copies mistakes or deletions immediately, a daily backup lets you go back to yesterday's data",
+        "Uses an everyday analogy or example from a foundation's work (donor records, financial report)",
+        "Keeps sentences short with one idea each and avoids unexplained English jargon",
+        "Stays within about 150 words",
+        "Does not talk down to the reader"
+      ]
+    }
+  ]
+}

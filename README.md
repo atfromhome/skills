@@ -1,6 +1,6 @@
 # skills
 
-Agent skills (Agent Skills format: a folder with `SKILL.md`) for planning and shipping features with verification decided **before** code. Generic by default: any repo, any language, any issue tracker (GitHub Issues by default).
+Agent skills (Agent Skills format: a folder with `SKILL.md`). Most of them form the vflow family for planning and shipping features with verification decided **before** code. Generic by default: any repo, any language, any issue tracker (GitHub Issues by default). A few standalone skills sit beside the family.
 
 ## The vflow family
 
@@ -22,9 +22,19 @@ Agent skills (Agent Skills format: a folder with `SKILL.md`) for planning and sh
 
 Verification levels: **A** state machines, status transitions, concurrency, money (TLA+ gate first); **B** rules and calculations (property-based tests); **C** simple UI/CRUD (regular tests). When unsure, A.
 
+## Other skills (skill lain)
+
+Standalone skills, not part of the vflow flow above. Install them on their own.
+
+| Skill | Role |
+|---|---|
+| [`lugas`](skills/lugas) | Plain, inclusive Bahasa Indonesia for UI copy, microcopy, guides, docs, reports and public-service text, with the RASA quality lens (Ritmis, Akurat, Sarat Makna, Alami) and a final self-check. Also a compact rule set for everyday agent replies |
+
+To make an agent's everyday replies plain Indonesian (not only when `lugas` is loaded), paste the block from [`skills/lugas/references/agents-snippet.md`](skills/lugas/references/agents-snippet.md) into the repo's `AGENTS.md` or `CLAUDE.md`.
+
 ## Install
 
-Copy all six folders from `skills/` side by side into your agent's skills directory (for example `.agents/skills/`, `.claude/skills/`, or `.cursor/skills/`). They refer to each other by name.
+Copy the six vflow folders (`flow`, `chart`, `grill`, `spec`, `prove`, `slice`) side by side into your agent's skills directory (for example `.agents/skills/`, `.claude/skills/`, or `.cursor/skills/`). They refer to each other by name. `lugas` can be copied alone.
 
 ## Requirements (level A only)
 
@@ -47,4 +57,4 @@ Zero config works. A repo can override defaults with `.vflow.yml` or a `## vflow
 
 ## License
 
-MIT. Derived from [mattpocock/skills](https://github.com/mattpocock/skills) and [pstack](https://github.com/cursor/plugins); see [NOTICE.md](NOTICE.md).
+MIT. Derived from [mattpocock/skills](https://github.com/mattpocock/skills) and [pstack](https://github.com/cursor/plugins); `lugas` is inspired by the [bahasa-indonesia-plain gist by orepras](https://gist.github.com/orepras/3e1ca8974fc51d11825f142fa6a66635) (no text copied). See [NOTICE.md](NOTICE.md).

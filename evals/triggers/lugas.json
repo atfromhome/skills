@@ -1,0 +1,38 @@
+[
+  {
+    "query": "Tolong bikin teks pengumuman ini lebih lugas dan mudah dipahami warga.",
+    "should_trigger": true
+  },
+  {
+    "query": "Tulis microcopy untuk empty state halaman donasi di aplikasi kami, bahasa Indonesia, santai.",
+    "should_trigger": true
+  },
+  {
+    "query": "Pesan error kita masih 'Input tidak valid'. Bisa tulis ulang biar nggak menyalahkan pengguna?",
+    "should_trigger": true
+  },
+  {
+    "query": "Sederhanakan bahasa panduan pendaftaran BPJS ini untuk lansia.",
+    "should_trigger": true
+  },
+  {
+    "query": "Jelaskan ke bendahara yayasan apa itu API, pakai bahasa yang gampang.",
+    "should_trigger": true
+  },
+  {
+    "query": "Rewrite this English onboarding copy to sound friendlier.",
+    "should_trigger": false
+  },
+  {
+    "query": "Tulis fungsi Go untuk menghitung zakat penghasilan dan unit test-nya.",
+    "should_trigger": false
+  },
+  {
+    "query": "Tulis spec untuk fitur pengingat iuran bulanan yang sudah kita sepakati.",
+    "should_trigger": false
+  },
+  {
+    "query": "Grill me on the pledge reminder feature before we write the spec.",
+    "should_trigger": false
+  }
+]
