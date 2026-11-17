@@ -20,7 +20,7 @@ Tanpa nama skill, semua skill diuji. Hasil disimpan di `evals/.vtest/` (diabaika
 ## Opsi
 - `--only 1,3`: hanya kasus nomor 1 dan 3.
 - `--model sonnet` atau `--model opus`: pilih model.
-- `--turns N`: jumlah giliran percakapan. Default 5 untuk grill, 3 untuk chart, 2 untuk spec, slice, dan check, 1 untuk lainnya. User simulasi menyetujui semua rekomendasi.
+- `--turns N`: jumlah giliran percakapan. Default 5 untuk grill, 3 untuk chart dan spec, 2 untuk slice dan check, 1 untuk lainnya. User simulasi menyetujui semua rekomendasi.
 - `--max-turns 12`: batas langkah per giliran.
 
 ## Hasil

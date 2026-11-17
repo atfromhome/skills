@@ -5,7 +5,9 @@
       "id": 1,
       "prompt": "Turn our discussion about webhook-driven order status (pending, paid, refunded, chargeback) into a spec.",
       "expected_output": "Spec with all template sections, level A with Q1-Q3 answers, INV-n in plain language, formal-gate:pending, pauses for seams check before publishing.",
-      "files": [],
+      "files": [
+        "fixtures/spec/order-status-webhook.md"
+      ],
       "expectations": [
         "Contains all template sections (Problem Statement through Further Notes)",
         "Verification level A with written answers to Q1-Q3",
@@ -18,7 +20,9 @@
       "id": 2,
       "prompt": "Write a spec for the CSV export of the donations report we just discussed.",
       "expected_output": "Level B (or C) with PROP-n properties, picks PBT library from repo language, no gate.",
-      "files": [],
+      "files": [
+        "fixtures/spec/donations-csv-export.md"
+      ],
       "expectations": [
         "Verification level B (or C) with a written reason",
         "Lists PROP-n properties with generators/edge cases",
@@ -30,7 +34,9 @@
       "id": 3,
       "prompt": "Spec the new profile page copy changes.",
       "expected_output": "Level C with example cases; no TLA+.",
-      "files": [],
+      "files": [
+        "fixtures/spec/profile-page-copy.md"
+      ],
       "expectations": [
         "Verification level C",
         "Lists example cases per user story",
