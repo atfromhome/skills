@@ -29,12 +29,12 @@
     {
       "id": 3,
       "prompt": "Add a dark-mode toggle to settings. Use wayfinder.",
-      "expected_output": "Breadth pass finds no fog; stops and suggests spec instead of a map.",
+      "expected_output": "Breadth pass finds no fog; stops and suggests grill (decisions still open) or spec instead of a map.",
       "files": [],
       "expectations": [
         "Does not create a map issue",
         "Says the effort fits one session (no fog)",
-        "Suggests running spec instead"
+        "Suggests grill or spec instead of a map"
       ]
     }
   ]
