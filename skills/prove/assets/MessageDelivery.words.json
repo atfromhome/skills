@@ -1,0 +1,3 @@
+{"states": {"queued": "Queued", "sending": "Sending", "delivered": "Delivered", "read": "Read", "failed": "Failed"},
+ "actions": {"WeSend": "we send", "SweepTimesOut": "cleanup sweep times out", "WebhookArrives": "a report arrives", "WebhookDuplicate": "a report arrives again"},
+ "hide": ["Done", "ProviderDelivers", "ProviderReportsRead", "ProviderFails"]}

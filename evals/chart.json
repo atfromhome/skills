@@ -1,0 +1,23 @@
+{
+  "skill_name": "chart",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We want to rebuild our whole billing system on a new provider; no idea where to start. Chart it.",
+      "expected_output": "Names destination with human, breadth-first fog, flags level-A areas in Notes, creates map + question tickets, wires blocking, stops.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Work the next decision on the billing map.",
+      "expected_output": "Loads map low-res, claims first frontier ticket, resolves by type (HITL waits for human), records resolution, one ticket only.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Add a dark-mode toggle to settings. Use wayfinder.",
+      "expected_output": "Breadth pass finds no fog; stops and suggests spec instead of a map.",
+      "files": []
+    }
+  ]
+}

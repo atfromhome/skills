@@ -1,0 +1,53 @@
+name: validate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  frontmatter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+      - name: Check SKILL.md frontmatter
+        run: |
+          python - <<'PY'
+          import pathlib, sys, yaml
+          bad = 0
+          for p in sorted(pathlib.Path("skills").glob("*/SKILL.md")):
+              text = p.read_text()
+              if not text.startswith("---"):
+                  print(f"{p}: missing frontmatter"); bad += 1; continue
+              fm = yaml.safe_load(text.split("---", 2)[1])
+              name, desc = fm.get("name"), fm.get("description")
+              if name != p.parent.name:
+                  print(f"{p}: name '{name}' != folder '{p.parent.name}'"); bad += 1
+              if not desc or len(desc) > 1024:
+                  print(f"{p}: description missing or longer than 1024 chars"); bad += 1
+              print(f"ok {p}")
+          sys.exit(1 if bad else 0)
+          PY
+
+  tlc-example:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - name: Fetch tla2tools.jar
+        run: bash skills/prove/scripts/check_toolchain.sh --fetch-tla2tools
+      - name: Fixed model passes, buggy model fails
+        working-directory: skills/prove/assets
+        run: |
+          JAR="$HOME/.cache/vflow/tla2tools.jar"
+          java -XX:+UseParallelGC -cp "$JAR" tlc2.TLC -workers 1 -config MessageDeliveryFixed.cfg MessageDelivery.tla
+          if java -XX:+UseParallelGC -cp "$JAR" tlc2.TLC -workers 1 -config MessageDelivery.cfg MessageDelivery.tla; then
+            echo "expected the buggy config to violate an invariant"; exit 1
+          fi

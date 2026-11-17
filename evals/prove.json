@@ -1,0 +1,23 @@
+{
+  "skill_name": "prove",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Spec 'Message delivery status \u2014 spec' is level A. Run the formal gate.",
+      "expected_output": "Toolchain check, TLA+ model with invariants from INV-n, broken variant shown failing, TLC run, statechart, gate record comment with marker; pause on failure.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Java isn't installed on this runner. Gate the 'Payout approval \u2014 spec' anyway.",
+      "expected_output": "Records BLOCKED with exact problem and model text, does not skip or mark passed, asks human.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "We refactored the job queue claim logic last week. Is the model still true to the code?",
+      "expected_output": "Maintain mode: finds verify skill, runs as-is, diffs since sync commit, classifies each check in sync/updated/bug/blocked, edits only verification files.",
+      "files": []
+    }
+  ]
+}

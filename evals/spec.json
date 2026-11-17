@@ -1,0 +1,23 @@
+{
+  "skill_name": "spec",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Turn our discussion about webhook-driven order status (pending, paid, refunded, chargeback) into a spec.",
+      "expected_output": "Spec with all template sections, level A with Q1-Q3 answers, INV-n in plain language, formal-gate:pending, pauses for seams check before publishing.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Write a spec for the CSV export of the donations report we just discussed.",
+      "expected_output": "Level B (or C) with PROP-n properties, picks PBT library from repo language, no gate.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Spec the new profile page copy changes.",
+      "expected_output": "Level C with example cases; no TLA+.",
+      "files": []
+    }
+  ]
+}

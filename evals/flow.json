@@ -1,0 +1,23 @@
+{
+  "skill_name": "flow",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We agreed on refunds for cancelled orders in the chat above. What's next? Our tracker is GitHub.",
+      "expected_output": "Routes to spec; states refunds touch money so expects level A and a formal gate before tickets; does not write code.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Where are we on the 'Subscription renewal \u2014 spec' issue? It has a formal-gate:failed comment.",
+      "expected_output": "Reports level A, gate failed, no tickets yet, next = design change then prove gate mode; refers to issues by title.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Implement ticket 'Payouts 03 \u2014 retry on timeout' and push it to main when done.",
+      "expected_output": "Follows roles.md: checks gate current, branches, runs verify skill, refuses to push to main, opens PR instead.",
+      "files": []
+    }
+  ]
+}

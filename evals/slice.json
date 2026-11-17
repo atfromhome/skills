@@ -1,0 +1,23 @@
+{
+  "skill_name": "slice",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Break 'Message delivery status \u2014 spec' into tickets. The gate passed on the current revision.",
+      "expected_output": "Ticket 01 prefactor (bind) blocking all others, ACs cite INV-n, quiz before publishing, sub-issues in dependency order.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Slice the 'Order refunds \u2014 spec' into issues.",
+      "expected_output": "Spec is level A without a current gate record: refuses to slice, routes to prove.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Make tickets for the CSV export spec (level B).",
+      "expected_output": "Prefactor with property tests for PROP-n first, vertical slices, quiz, publish.",
+      "files": []
+    }
+  ]
+}
