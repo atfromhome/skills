@@ -23,7 +23,7 @@ The end-to-end behaviour this ticket makes work, from the user's perspective. No
 ## Prefactor ticket example (level A)
 
 **Message delivery 01 — Model, property tests, and verify skill**
-- What to build: commit the gated model, map each action to the code that performs it, add stateful tests that replay random orders of send / provider reports / duplicates / sweep and assert INV-1..3, and generate `verify-message-delivery`.
+- What to build: commit the gated model, map each action to the code that performs it, add stateful tests that replay random orders of send / provider reports / duplicates / sweep and assert INV-1..4, and generate `verify-message-delivery`.
 - Acceptance: the verify skill catches a scratch break (rank-only merge) and passes after it is dropped; property tests exist (pending where behaviour is unbuilt); no product behaviour change.
 - Blocks: every other ticket of this spec.
 

@@ -13,7 +13,7 @@ Post as a comment on the spec issue (or `gate.md` next to a local spec). One rec
 
 | Spec rule | TLA+ name | Result |
 |---|---|---|
-| INV-1 <sentence> | DeliveryReportWins | holds / broken |
+| INV-4 <sentence> | DeliveryReportWins | holds / broken |
 | INV-2 … | … | … |
 
 **Can fail (evidence):** broken variant <what was removed/reordered> → TLC reported <rule> broken.

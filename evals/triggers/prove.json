@@ -1,0 +1,26 @@
+[
+  {
+    "query": "Spec 'Message delivery status — spec' is level A. Run the formal gate.",
+    "should_trigger": true
+  },
+  {
+    "query": "Java isn't installed on this runner. Gate the 'Payout approval — spec' anyway.",
+    "should_trigger": true
+  },
+  {
+    "query": "We refactored the job queue claim logic last week. Is the model still true to the code?",
+    "should_trigger": true
+  },
+  {
+    "query": "Check this race between two admins approving the same disbursement",
+    "should_trigger": true
+  },
+  {
+    "query": "Write unit tests for the date formatter",
+    "should_trigger": false
+  },
+  {
+    "query": "Make tickets for the CSV export spec",
+    "should_trigger": false
+  }
+]

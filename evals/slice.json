@@ -3,21 +3,41 @@
   "evals": [
     {
       "id": 1,
-      "prompt": "Break 'Message delivery status \u2014 spec' into tickets. The gate passed on the current revision.",
+      "prompt": "Break 'Message delivery status — spec' into tickets. The gate passed on the current revision.",
       "expected_output": "Ticket 01 prefactor (bind) blocking all others, ACs cite INV-n, quiz before publishing, sub-issues in dependency order.",
-      "files": []
+      "files": [],
+      "expectations": [
+        "Confirms the latest gate record is PASSED and current before slicing",
+        "Ticket 01 is the prefactor (prove bind mode) and blocks every other ticket",
+        "Each ticket's acceptance criteria cite INV-n ids",
+        "Shows a coverage table INV-n to ticket",
+        "Quizzes the human and does not publish before approval",
+        "Publishes in dependency order as sub-issues of the spec"
+      ]
     },
     {
       "id": 2,
-      "prompt": "Slice the 'Order refunds \u2014 spec' into issues.",
+      "prompt": "Slice the 'Order refunds — spec' into issues.",
       "expected_output": "Spec is level A without a current gate record: refuses to slice, routes to prove.",
-      "files": []
+      "files": [],
+      "expectations": [
+        "Detects the spec is level A without a current passed gate record",
+        "Refuses to create tickets",
+        "Routes to prove (gate mode) and says why"
+      ]
     },
     {
       "id": 3,
       "prompt": "Make tickets for the CSV export spec (level B).",
       "expected_output": "Prefactor with property tests for PROP-n first, vertical slices, quiz, publish.",
-      "files": []
+      "files": [],
+      "expectations": [
+        "Ticket 01 adds the PBT library and one property test per PROP-n (pending where unbuilt)",
+        "Ticket 01 blocks the others",
+        "Remaining tickets are vertical slices citing PROP-n",
+        "Quizzes the human before publishing",
+        "No TLA+ or formal gate is required"
+      ]
     }
   ]
 }

@@ -30,8 +30,23 @@ jobs:
               if not desc or len(desc) > 1024:
                   print(f"{p}: description missing or longer than 1024 chars"); bad += 1
               print(f"ok {p}")
+          for e in sorted(pathlib.Path("evals").glob("*.json")):
+              import json
+              if json.loads(e.read_text()).get("skill_name") != e.stem:
+                  print(f"{e}: skill_name != {e.stem}"); bad += 1
           sys.exit(1 if bad else 0)
           PY
+
+  lint-scripts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: bash -n + shellcheck
+        run: |
+          for f in skills/*/scripts/*.sh; do bash -n "$f"; done
+          shellcheck skills/*/scripts/*.sh
+      - name: py_compile
+        run: python3 -m py_compile skills/*/scripts/*.py
 
   tlc-example:
     runs-on: ubuntu-latest
@@ -47,7 +62,15 @@ jobs:
         working-directory: skills/prove/assets
         run: |
           JAR="$HOME/.cache/vflow/tla2tools.jar"
-          java -XX:+UseParallelGC -cp "$JAR" tlc2.TLC -workers 1 -config MessageDeliveryFixed.cfg MessageDelivery.tla
-          if java -XX:+UseParallelGC -cp "$JAR" tlc2.TLC -workers 1 -config MessageDelivery.cfg MessageDelivery.tla; then
-            echo "expected the buggy config to violate an invariant"; exit 1
+          META="${RUNNER_TEMP:-/tmp}/tlc-meta"
+          java -XX:+UseParallelGC -cp "$JAR" tlc2.TLC -workers 1 -metadir "$META/fixed" -config MessageDeliveryFixed.cfg MessageDelivery.tla
+          if java -XX:+UseParallelGC -cp "$JAR" tlc2.TLC -workers 1 -metadir "$META/buggy" -config MessageDelivery.cfg MessageDelivery.tla > "$META/buggy.out" 2>&1; then
+            cat "$META/buggy.out"; echo "expected the buggy config to violate an invariant"; exit 1
           fi
+          grep -q "Invariant DeliveryReportWins is violated" "$META/buggy.out" || { cat "$META/buggy.out"; echo "buggy config failed for the wrong reason"; exit 1; }
+      - name: Fallback statechart renders
+        run: |
+          A=skills/prove/assets
+          bash skills/prove/scripts/tlc.sh $A/MessageDelivery.tla -c $A/MessageDeliveryFixed.cfg -o "$RUNNER_TEMP/out" --dot
+          python3 skills/prove/scripts/dot2mermaid.py "$RUNNER_TEMP/out/states.dot" --vars status --words $A/MessageDelivery.words.json > "$RUNNER_TEMP/chart.mmd"
+          grep -q '^stateDiagram-v2' "$RUNNER_TEMP/chart.mmd" && cat "$RUNNER_TEMP/chart.mmd"

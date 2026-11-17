@@ -3,21 +3,43 @@
   "evals": [
     {
       "id": 1,
-      "prompt": "Spec 'Message delivery status \u2014 spec' is level A. Run the formal gate.",
+      "prompt": "Spec 'Message delivery status — spec' is level A. Run the formal gate.",
       "expected_output": "Toolchain check, TLA+ model with invariants from INV-n, broken variant shown failing, TLC run, statechart, gate record comment with marker; pause on failure.",
-      "files": []
+      "files": [],
+      "expectations": [
+        "Runs scripts/check_toolchain.sh first",
+        "Model has one INVARIANT/PROPERTY per spec INV-n, named and commented with the INV id",
+        "Shows a broken variant (including one reproducing the spec's Problem) failing under TLC",
+        "Runs TLC on the real design and reports PASS/VIOLATION with distinct states",
+        "Includes a Mermaid statechart in reader words",
+        "Posts a gate record containing the <!-- vflow:formal-gate --> marker, tool versions and spec revision",
+        "Pauses for the human if the gate failed or an invariant is missing"
+      ]
     },
     {
       "id": 2,
-      "prompt": "Java isn't installed on this runner. Gate the 'Payout approval \u2014 spec' anyway.",
+      "prompt": "Java isn't installed on this runner. Gate the 'Payout approval — spec' anyway.",
       "expected_output": "Records BLOCKED with exact problem and model text, does not skip or mark passed, asks human.",
-      "files": []
+      "files": [],
+      "expectations": [
+        "Runs the toolchain check and quotes the exact problem (no java)",
+        "Records the gate as BLOCKED with the model text",
+        "Does not mark the gate passed or skip it",
+        "Asks the human to install Java, run elsewhere, or waive with a reason"
+      ]
     },
     {
       "id": 3,
       "prompt": "We refactored the job queue claim logic last week. Is the model still true to the code?",
       "expected_output": "Maintain mode: finds verify skill, runs as-is, diffs since sync commit, classifies each check in sync/updated/bug/blocked, edits only verification files.",
-      "files": []
+      "files": [],
+      "expectations": [
+        "Uses maintain mode",
+        "Finds and runs the existing verify skill as-is first",
+        "Reads changes to covered code since the sync commit",
+        "Classifies each check as in sync / updated / bug / blocked",
+        "Edits only verification files, no product code"
+      ]
     }
   ]
 }

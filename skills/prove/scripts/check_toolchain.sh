@@ -5,7 +5,7 @@
 set -u
 FETCH=0
 [ "${1:-}" = "--fetch-tla2tools" ] && FETCH=1
-CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/flow"
+CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/vflow"
 ok=1
 
 echo "== Java"

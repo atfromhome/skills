@@ -21,13 +21,13 @@ base="$(basename "$SPEC" .tla)"; dir="$(cd "$(dirname "$SPEC")" && pwd)"
 [ -f "$CFG" ] || { echo "config not found: $CFG"; exit 2; }
 OUT="${OUT:-$dir/tlc-out}"; mkdir -p "$OUT"; OUT="$(cd "$OUT" && pwd)"
 JAVA="${JAVA:-java}"
-CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/flow"
+CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/vflow"
 JAR="${TLA2TOOLS_JAR:-$CACHE/tla2tools.jar}"
 command -v "$JAVA" >/dev/null 2>&1 || { echo "BLOCKED: java not found (run check_toolchain.sh)"; exit 2; }
 [ -f "$JAR" ] || { echo "BLOCKED: tla2tools.jar not found at $JAR (set TLA2TOOLS_JAR)"; exit 2; }
 CFGABS="$(cd "$(dirname "$CFG")" && pwd)/$(basename "$CFG")"
 DUMP=()
-[ "$DOT" = 1 ] && DUMP=(-dump dot,actionlabels "$OUT/states")
+[ "$DOT" = 1 ] && DUMP=(-dump "dot,actionlabels" "$OUT/states")
 ( cd "$dir" && "$JAVA" -XX:+UseParallelGC -cp "$JAR" tlc2.TLC -workers "$WORKERS" -cleanup \
     -metadir "$OUT/meta" -config "$CFGABS" "${DUMP[@]}" "${EXTRA[@]}" "$base.tla" ) > "$OUT/tlc.out" 2>&1
 code=$?
@@ -37,7 +37,9 @@ if grep -q "Model checking completed. No error has been found" "$OUT/tlc.out"; t
   verdict="PASS"; rule=""
 elif grep -qE "^Error: Invariant .* is violated" "$OUT/tlc.out"; then
   verdict="VIOLATION"; rule=$(grep -m1 -oE "Invariant [A-Za-z0-9_]+ is violated" "$OUT/tlc.out" | awk '{print $2}')
-elif grep -qE "^Error: Temporal properties were violated|^Error: Action property" "$OUT/tlc.out"; then
+elif grep -qE "^Error: Action property [A-Za-z0-9_]+ is violated" "$OUT/tlc.out"; then
+  verdict="VIOLATION"; rule=$(grep -m1 -oE "Action property [A-Za-z0-9_]+ is violated" "$OUT/tlc.out" | awk '{print $3}')
+elif grep -qE "^Error: Temporal properties were violated" "$OUT/tlc.out"; then
   verdict="VIOLATION"; rule="temporal property"
 elif grep -q "^Error: Deadlock reached" "$OUT/tlc.out"; then
   verdict="VIOLATION"; rule="Deadlock"

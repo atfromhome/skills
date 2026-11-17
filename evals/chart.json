@@ -5,19 +5,37 @@
       "id": 1,
       "prompt": "We want to rebuild our whole billing system on a new provider; no idea where to start. Chart it.",
       "expected_output": "Names destination with human, breadth-first fog, flags level-A areas in Notes, creates map + question tickets, wires blocking, stops.",
-      "files": []
+      "files": [],
+      "expectations": [
+        "Asks the human to confirm the destination before creating anything",
+        "Map Notes list likely level-A areas (e.g. payment/invoice lifecycle, provider webhooks)",
+        "Creates one map issue labelled wayfinder:map and child tickets phrased as questions",
+        "Wires blocking edges in a second pass using real ids",
+        "Stops after charting without resolving any ticket or writing product code"
+      ]
     },
     {
       "id": 2,
       "prompt": "Work the next decision on the billing map.",
       "expected_output": "Loads map low-res, claims first frontier ticket, resolves by type (HITL waits for human), records resolution, one ticket only.",
-      "files": []
+      "files": [],
+      "expectations": [
+        "Claims (assigns) exactly one frontier ticket before working on it",
+        "Resolves it according to its wayfinder:<type> label; for HITL types waits for the human's answer",
+        "Posts a resolution comment, closes the ticket, adds one line to Decisions so far",
+        "Does not start a second non-research ticket in the same session"
+      ]
     },
     {
       "id": 3,
       "prompt": "Add a dark-mode toggle to settings. Use wayfinder.",
       "expected_output": "Breadth pass finds no fog; stops and suggests spec instead of a map.",
-      "files": []
+      "files": [],
+      "expectations": [
+        "Does not create a map issue",
+        "Says the effort fits one session (no fog)",
+        "Suggests running spec instead"
+      ]
     }
   ]
 }

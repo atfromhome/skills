@@ -1,6 +1,6 @@
 ---
 name: slice
-description: "Break a spec into tracer-bullet tickets (thin vertical slices, each with its blocking edges and acceptance criteria that cite the spec's invariants INV-n or properties PROP-n), confirm the breakdown with the human, then publish them to the issue tracker as sub-issues in dependency order. Enforces the verification flow: a level-A spec is not split until its formal gate has passed, and for level A or B the first ticket is a prefactor that commits the model and/or property tests and blocks the rest. Use for /slice, 'break this spec into tickets', 'make issues from this spec', 'slice this', or after a spec or gate is approved, even if the user only says 'next step'."
+description: "Break a spec into tracer-bullet tickets (thin vertical slices, each with its blocking edges and acceptance criteria that cite the spec's invariants INV-n or properties PROP-n), confirm the breakdown with the human, then publish them to the issue tracker as sub-issues in dependency order. Enforces the verification flow: a level-A spec is not split until its formal gate has passed, and for level A or B the first ticket is a prefactor that commits the model and/or property tests and blocks the rest. Use for /slice, 'break this spec into tickets', 'make issues from this spec', 'slice this', or right after a spec or gate in this flow is approved and the user says 'next step'. For a general 'what's next' or status question, the flow skill routes."
 license: "MIT. Derived from mattpocock/skills to-tickets; see NOTICE.md"
 metadata:
   version: "0.1.0"

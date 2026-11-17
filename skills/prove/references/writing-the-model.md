@@ -29,7 +29,7 @@ Goal: the smallest TLA+ model in which every spec invariant can break if the des
 | Money / stock | A ledger set or sum; invariants like "sum of debits = sum of credits", "at most one capture per order" |
 
 ## Prove it can fail
-Before trusting a pass, run a broken variant (a constant `Fixed`/`Buggy`, or a temporary edit) that drops a guard or reorders two steps, and confirm TLC reports the expected invariant. Record which break you used. `assets/MessageDelivery.tla` shows the pattern with `CONSTANT Fixed`.
+Before trusting a pass, run a broken variant (a constant `Fixed`/`Buggy`, or a temporary edit) that drops a guard or reorders two steps, and confirm TLC reports the expected invariant. Record which break you used. The first break to try is the one that reproduces the spec's Problem Statement; if it passes, an invariant is missing from the spec (propose it to the human; do not add it silently). `assets/MessageDelivery.tla` shows the pattern with `CONSTANT Fixed`.
 
 ## Run
 `scripts/tlc.sh <Model>.tla [-c <Model>.cfg] [-o outdir] [--dot]` prints a JSON summary (`PASS` / `VIOLATION` with rule / `ERROR`) and the counterexample. Exit 0/1/2.

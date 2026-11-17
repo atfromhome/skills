@@ -1,0 +1,22 @@
+[
+  {
+    "query": "We want to rebuild our whole billing system on a new provider; no idea where to start. Chart it.",
+    "should_trigger": true
+  },
+  {
+    "query": "Work the next decision on the billing map.",
+    "should_trigger": true
+  },
+  {
+    "query": "Use wayfinder for the multi-tenant migration; it will take weeks",
+    "should_trigger": true
+  },
+  {
+    "query": "Add a dark-mode toggle to settings.",
+    "should_trigger": false
+  },
+  {
+    "query": "Break the billing spec into tickets",
+    "should_trigger": false
+  }
+]

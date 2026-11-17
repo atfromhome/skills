@@ -23,14 +23,14 @@ When the repo's doc defines its own labels, title formats, claim commands, branc
 | Operation | Used by |
 |---|---|
 | Read issue body + comments | all |
-| Create issue with labels | spec, tickets, wayfinder |
-| Edit issue body | spec (revisions), wayfinder (map index) |
-| Add comment (with a hidden marker such as `<!-- vflow:formal-gate -->`) | formal-gate, QA |
+| Create issue with labels | spec, slice, chart |
+| Edit issue body | spec (revisions), chart (map index) |
+| Add comment (with a hidden marker such as `<!-- vflow:formal-gate -->`) | prove, QA |
 | Add/remove label | all (status axes) |
-| Link sub-issue to parent | tickets, wayfinder |
-| Native "blocked by" edge | tickets, wayfinder |
-| Query children / frontier (open, unblocked, unassigned) | tickets, wayfinder, status |
-| Assign (claim) | wayfinder, implementer |
+| Link sub-issue to parent | slice, chart |
+| Native "blocked by" edge | slice, chart |
+| Query children / frontier (open, unblocked, unassigned) | slice, chart, status |
+| Assign (claim) | chart, implementer |
 
 If an operation is missing on the tracker, use a body convention (a `## Parent` or `## Blocked by` section listing linked issues) and say so; the human must then check the graph by hand.
 
@@ -53,7 +53,7 @@ Issues + `glab issue note`; child items via tasks or "related/blocks" links (`/b
 Use the connector's create/comment/label/relations tools. Sub-issue = parent/child; blocked-by = "blocks" relation. Attach the model as a file if the tracker supports attachments, otherwise inline.
 
 ### Local markdown (last resort)
-`.scratch/<feature-slug>/spec.md`, `.scratch/<feature-slug>/gate.md`, `.scratch/<feature-slug>/issues/NN-<slug>.md` numbered in dependency order with `Blocked by:` lines. Warn that repo-stored planning files persist by accident; keep `.scratch/` git-ignored unless the repo says otherwise.
+`.scratch/<feature-slug>/spec.md`, `.scratch/<feature-slug>/gate.md`, `.scratch/<feature-slug>/issues/NN-<slug>.md` numbered in dependency order with `Blocked by:` lines. Labels (spec, level, gate status, ready) are a `**Labels:**` line under the title, edited in place; the gate record is a new `<!-- vflow:formal-gate -->` section appended to `gate.md` per run. Warn that repo-stored planning files persist by accident; keep `.scratch/` git-ignored unless the repo says otherwise.
 
 ## 4. Mirroring into an orchestrator
 

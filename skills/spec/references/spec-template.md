@@ -55,6 +55,7 @@ Revisions, links to the wayfinder map or prototypes, open risks.
 - INV-1: Status never moves backwards, except that a late `delivered`/`read` report corrects a `failed` set by the cleanup sweep.
 - INV-2: Every message in `sending` eventually reaches a final state (fairness: the sweep eventually runs).
 - INV-3: Applying the same webhook twice leaves the same status as applying it once.
+- INV-4: Once the provider's delivery report has been applied, the message is never shown as `failed`. (Without this rule INV-1..3 still hold for the buggy rank-only merge, so the gate could not catch the very problem the spec is about. Name the harm in the Problem Statement as an invariant.)
 
 ## Example (abridged, level B)
 

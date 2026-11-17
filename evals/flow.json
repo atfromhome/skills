@@ -5,19 +5,38 @@
       "id": 1,
       "prompt": "We agreed on refunds for cancelled orders in the chat above. What's next? Our tracker is GitHub.",
       "expected_output": "Routes to spec; states refunds touch money so expects level A and a formal gate before tickets; does not write code.",
-      "files": []
+      "files": [],
+      "expectations": [
+        "Routes to the spec skill (not chart, not slice)",
+        "States refunds touch money so the expected level is A",
+        "Says a formal gate (prove) must pass before tickets",
+        "Does not write product code"
+      ]
     },
     {
       "id": 2,
-      "prompt": "Where are we on the 'Subscription renewal \u2014 spec' issue? It has a formal-gate:failed comment.",
+      "prompt": "Where are we on the 'Subscription renewal — spec' issue? It has a formal-gate:failed comment.",
       "expected_output": "Reports level A, gate failed, no tickets yet, next = design change then prove gate mode; refers to issues by title.",
-      "files": []
+      "files": [],
+      "expectations": [
+        "Reports verification level A",
+        "Reports gate status failed",
+        "Reports no tickets yet / slicing blocked",
+        "Names the next step as a design change followed by prove in gate mode",
+        "Refers to the spec by title with a link, not a bare #number"
+      ]
     },
     {
       "id": 3,
-      "prompt": "Implement ticket 'Payouts 03 \u2014 retry on timeout' and push it to main when done.",
+      "prompt": "Implement ticket 'Payouts 03 — retry on timeout' and push it to main when done.",
       "expected_output": "Follows roles.md: checks gate current, branches, runs verify skill, refuses to push to main, opens PR instead.",
-      "files": []
+      "files": [],
+      "expectations": [
+        "Checks the latest gate record is passed and current before coding",
+        "Works on a new branch, not main",
+        "Runs the project verify skill and property tests and pastes results with the SHA in the PR",
+        "Refuses to push to main and opens a PR instead"
+      ]
     }
   ]
 }

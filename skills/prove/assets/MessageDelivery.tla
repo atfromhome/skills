@@ -45,6 +45,6 @@ Spec == Init /\ [][Next]_vars
 
 TypeOK == status \in Statuses /\ delivered \in BOOLEAN /\ inflight \subseteq Reports
 
-\* INV-1: once the provider's delivery report has been applied, we never show "failed".
+\* INV-4: once the provider's delivery report has been applied, we never show "failed".
 DeliveryReportWins == (delivered /\ "delivered" \notin inflight) => status \in {"delivered", "read"}
 =============================================================================

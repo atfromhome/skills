@@ -1,0 +1,22 @@
+[
+  {
+    "query": "Break 'Message delivery status — spec' into tickets. The gate passed on the current revision.",
+    "should_trigger": true
+  },
+  {
+    "query": "Slice the 'Order refunds — spec' into issues.",
+    "should_trigger": true
+  },
+  {
+    "query": "Make tickets for the CSV export spec (level B).",
+    "should_trigger": true
+  },
+  {
+    "query": "Where are we on the renewal spec?",
+    "should_trigger": false
+  },
+  {
+    "query": "Turn this discussion into a spec",
+    "should_trigger": false
+  }
+]

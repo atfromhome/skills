@@ -1,0 +1,26 @@
+[
+  {
+    "query": "Turn our discussion about webhook-driven order status into a spec.",
+    "should_trigger": true
+  },
+  {
+    "query": "Write a spec for the CSV export of the donations report we just discussed.",
+    "should_trigger": true
+  },
+  {
+    "query": "Spec the new profile page copy changes.",
+    "should_trigger": true
+  },
+  {
+    "query": "Refine this issue into a spec with a verification level",
+    "should_trigger": true
+  },
+  {
+    "query": "Model-check the payout state machine",
+    "should_trigger": false
+  },
+  {
+    "query": "Slice the refunds spec",
+    "should_trigger": false
+  }
+]
