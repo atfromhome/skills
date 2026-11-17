@@ -55,7 +55,7 @@ Read the issue (or conversation) and pick the first row that matches:
 
 ## Status reporting
 
-When asked "where are we", answer with: the spec (by title, with link), its verification level, gate status (`pending`, `passed`, `failed`, `blocked`, `waived`, `stale`, or n/a), tickets open/closed with the frontier, open PRs and their check verdict, and the next skill to run. Refer to issues by title, with the id inside the link, never as a bare `#123` list.
+When asked "where are we" or "what's next", answer with: the spec (by title, with link), its verification level, gate status (`pending`, `passed`, `failed`, `blocked`, `waived`, `stale`, or n/a), tickets open/closed with the frontier, open PRs and their check verdict, and the next skill to run. Refer to issues by title, with the id inside the link, never as a bare `#123` list.
 
 ## References
 

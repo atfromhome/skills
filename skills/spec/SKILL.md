@@ -24,7 +24,7 @@ Find the tracker first (lookup order in the `flow` skill, `references/tracker.md
 4. **Classify the verification level.** Follow `references/verification-levels.md`. Answer its four questions in writing. Any "yes" to Q1–Q3 means **A**; if unsure, **A**. Then draft:
    - Level A: a state list, the transitions with their triggers, and **invariants** `INV-1..n` in plain language (safety: "never…", "at most one…"; liveness: "every X eventually…"). Note which actors run concurrently and what can arrive twice, late, or out of order.
    - Level B: **properties** `PROP-1..n` in plain language plus the generators they need, and the PBT library for this language (`references/property-testing.md`).
-   - Level C: the example cases that prove each user story.
+   - Level C: the example cases that prove each user story. Label each case with the story it proves ("Story 3 → E4"); every story gets at least one case, or a one-line reason it is not testable (then move it to Further Notes).
 
 5. **Pause: seams and level check with the human.** Show the seams, the level with the one-line reason, and the invariants/properties. Ask whether they match expectations. Stop until the human answers. Never answer for them.
 
