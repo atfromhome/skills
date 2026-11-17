@@ -1,30 +1,29 @@
-# Implementer and QA hooks
+# Implementer and QA rules
 
-## Implementer
+`ship` (implementation) and `check` (QA) carry these out step by step. This page is the short checklist behind them, for an agent working a ticket without those skills installed.
+
+## Implementer (`ship`)
 
 Before code:
 1. Read the ticket, its parent spec, and (level A) the latest gate record on the spec. If the gate is not `passed`/`waived` or is `stale`, stop and send the spec back to `prove`.
-2. Follow the repo's claim rule if it has one (assign yourself, claim command, progress label).
-3. Branch from the repo's integration branch using its naming convention (default `<spec-slug>/NN-<topic>`). Never commit to a protected branch.
+2. Ticket 01, the prefactor, is done first; level A runs `prove` bind mode in it.
+3. Follow the repo's claim rule if it has one (assign yourself, claim command, progress label).
+4. Branch per the repo's convention (default ticket branch `<spec-slug>/NN-<topic>`, integration branch `<spec-slug>/integration`). Never commit to a protected branch.
 
 While coding:
-- **Level A:** the verified statechart is the design. Each model action maps to one atomic step in code (one transaction, one compare-and-set, one lock scope). If the code needs a state, transition, or interleaving the model does not have, stop: either the design changes (back to the gate, update the model, rerun TLC) or the code is wrong. Do not "just add" a transition.
+- **Level A:** the verified statechart is the design. Each model action maps to one atomic step in code (one transaction, one compare-and-set, one lock scope). If the code needs a state, transition, or interleaving the model does not have, stop: either the design changes (back to the gate) or the code is wrong. Do not "just add" a transition, and never edit the model silently.
 - **Level A/B:** the prefactor ticket's property tests and (A) model are the acceptance oracle. Do not weaken a property or invariant to go green; a failing property is a finding to report.
-- Level C: regular tests for the acceptance criteria.
+- **Level C:** regular tests for the acceptance criteria.
+- Tests first, from the acceptance criteria and the `INV-n`/`PROP-n` they cite, at the spec's seams.
 
-Before opening the PR (or merge request):
-- Run the project-local verify skill (level A; created by the prefactor ticket) and the property tests. Paste the command, tool versions, commit SHA, and result into the PR description.
-- If your change touched code the verify skill covers and the model no longer describes it, update the model in the same PR with `prove` **maintain** mode, in a separate commit from product code.
-- Reference the ticket in the PR. Put the "closes spec" keyword only where the repo's convention says (often the last ticket of the spec).
-- Never merge your own PR; never push to protected branches.
+## QA (`check`)
 
-## QA
-
-1. Check out the PR head and record the exact SHA.
-2. Rerun, on that SHA: the verify skill (A), the property tests (A/B), the regular tests (all), and each acceptance criterion. Each criterion should cite the spec invariant/property it proves (`INV-n`, `PROP-n`).
-3. Compare model to code for level A: does each changed function still map to the model's actions and atomic steps? If not, that is **drift**: reject with "model drift" and point to maintain mode, even if TLC passes (a pass on a stale model proves nothing).
-4. Verdict comment on the PR/ticket: SHA, commands, results, accepted/rejected with reasons. Use the repo's reject counters or labels if it has them.
-5. A TLC counterexample or failing property is replayed against the real code before calling it a bug. If a step cannot happen in code, the model is wrong (drift); if every step can happen, it is a bug.
+1. Record the exact head SHA. Every result is for that SHA.
+2. Rerun on it: the verify skill (A), the property tests (A/B), the regular tests (all), and each acceptance criterion with its evidence. Map every `INV-n`/`PROP-n` to a test.
+3. Level A: does each changed function still map to the model's actions and atomic steps? If not, that is **drift**: reject with "model drift" and point to maintain mode, even if TLC passes (a pass on a stale model proves nothing).
+4. A TLC counterexample or failing property is replayed against the real code before calling it a bug. Impossible step in code → the model is wrong (drift); every step possible → bug.
+5. Report findings and stop for the human before fixing. Fixes go back to the implementer.
+6. When clean: PR body (`pr` skill) with commands, tool versions, SHA, results, and the INV/PROP coverage; link it so merging closes the ticket ("closes spec" only where the repo's convention says). Never merge your own PR; never push to protected branches.
 
 ## Drift at any time
 

@@ -8,11 +8,11 @@
     "should_trigger": true
   },
   {
-    "query": "Implement ticket 'Payouts 03 — retry on timeout'",
+    "query": "Ticket 01 of the payouts spec is merged into the integration branch. What runs next?",
     "should_trigger": true
   },
   {
-    "query": "QA this PR against the verified payout model",
+    "query": "Take the subscription renewal feature from idea all the way to a PR using the verified flow.",
     "should_trigger": true
   },
   {
@@ -21,6 +21,14 @@
   },
   {
     "query": "Fix the typo in the README",
+    "should_trigger": false
+  },
+  {
+    "query": "Implement ticket 'Payouts 03 — retry on timeout'",
+    "should_trigger": false
+  },
+  {
+    "query": "QA this PR against the verified payout model",
     "should_trigger": false
   }
 ]

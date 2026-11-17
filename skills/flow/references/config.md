@@ -20,6 +20,14 @@ labels:
 titles:
   spec: "{feature} — spec"
   ticket: "{feature} {NN} — {topic}"
+branches:
+  ticket: "{spec-slug}/{NN}-{topic}"
+  integration: "{spec-slug}/integration"
+commands:                  # optional; otherwise discovered from AGENTS.md, CONTRIBUTING.md, README, task runner files
+  typecheck: ""            # e.g. the repo's build or type check
+  test_one: ""             # run one test file or test name
+  test: ""                 # full suite
+  property: ""             # property tests, if separate
 paths:
   models: verification/{area}/          # where the prefactor ticket commits TLA+ models
   verify_skill: .agents/skills/verify-{area}/   # project-local verify skill (match the repo's skills dir)
@@ -42,3 +50,5 @@ orchestrator:
 - Spec title: `<Feature> — spec`. Ticket title: `<Feature> NN — <topic>`.
 - Models: `verification/<area>/` in the repo, committed by the prefactor ticket (never during the spec phase; then they live in a scratch folder and on the spec issue).
 - Protected branches: the repo's default branch plus `main`, `master`, `trunk`, `*/trunk`.
+- Branches: ticket `<spec-slug>/NN-<topic>`, integration `<spec-slug>/integration` (whole-spec mode in `ship`).
+- Commands: discovered from the repo's docs and task runner files; `ship` and `check` run each once to confirm it works, and ask if none is documented.

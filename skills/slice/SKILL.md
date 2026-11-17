@@ -49,3 +49,7 @@ Iterate until the human approves. Do not publish before that.
 Use `references/ticket-template.md`. Create blockers first so later tickets can reference real ids, then wire edges in a second pass. Make each ticket a sub-issue of the spec and set native "blocked by" edges where the tracker has them (fall back to a `## Blocked by` section and say so). Apply the repo's ready label (default `ready-for-agent`).
 
 Do not close or rewrite the spec. Report the published tickets by title with links, and the frontier (tickets startable now; normally just 01).
+
+## 6. Hand off
+
+Next is `ship`: ticket 01 first (single-ticket mode), or the whole spec through its task graph (whole-spec mode). For level A, ticket 01 is where `ship` runs `prove` bind.

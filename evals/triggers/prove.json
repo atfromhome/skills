@@ -22,5 +22,9 @@
   {
     "query": "Make tickets for the CSV export spec",
     "should_trigger": false
+  },
+  {
+    "query": "Review the payouts branch and tick off the acceptance criteria.",
+    "should_trigger": false
   }
 ]

@@ -1,0 +1,44 @@
+{
+  "skill_name": "check",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Review the branch message-delivery/02-late-report against message-delivery/integration. It's ticket 'Message delivery 02 — late delivery report corrects a sweep failure' of a level-A spec.",
+      "expected_output": "Pins fixed point and head SHA, runs Standards, Spec and Verification as parallel subagents, runs verify-message-delivery and the tests fresh, ticks each acceptance criterion with evidence, maps INV-n to tests, reports axes side by side, stops for the human before fixing.",
+      "files": [],
+      "expectations": [
+        "Resolves the fixed point and records the head SHA",
+        "Runs three separate axes (Standards, Spec, Verification) as parallel subagents or separate passes",
+        "Runs the repo-local verify skill and the tests in this session and quotes their output",
+        "Ticks every acceptance criterion with a test name, command output, or screenshot",
+        "Maps each cited INV-n to the test or model invariant that covers it",
+        "Presents the axes side by side without reranking and stops for the human before any fix"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "QA the payouts integration branch. The diff adds a new 'on_hold' status that the verified model doesn't have, but all tests pass.",
+      "expected_output": "Flags model drift in the Verification axis despite green tests, routes to prove maintain, does not open the PR or fix anything.",
+      "files": [],
+      "expectations": [
+        "Identifies the new state as drift from the verified model",
+        "Does not treat passing tests as enough",
+        "Routes to prove in maintain mode",
+        "Does not fix code itself, open the PR, or mark it ready"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "The human accepted the two smell findings on the CSV export integration branch and the earlier failures were fixed. Finish the check.",
+      "expected_output": "Re-runs verification fresh on the new SHA, then writes the PR body with pr, marks the draft ready with closing keywords for every ticket, never merges.",
+      "files": [],
+      "expectations": [
+        "Re-runs the commands on the current head SHA instead of reusing earlier output",
+        "Writes the PR body with the pr skill, including the acceptance-criteria and PROP-n coverage tables",
+        "Marks the existing draft PR ready for review",
+        "Links every ticket with the tracker's closing keyword",
+        "Does not merge the PR or push to main"
+      ]
+    }
+  ]
+}

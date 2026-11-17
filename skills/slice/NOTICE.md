@@ -11,7 +11,7 @@ Authoring followed the guidance in anthropics/skills `skill-creator` (Apache-2.0
 
 ## Changes
 
-Added the formal-gate precondition, mandatory prefactor ticket for level A/B, acceptance criteria citing INV-n/PROP-n and verification on the PR SHA, coverage check before the quiz, statechart transitions per ticket, pluggable tracker lookup, and model invocation enabled.
+Added the formal-gate precondition, mandatory prefactor ticket for level A/B, acceptance criteria citing INV-n/PROP-n and verification on the PR SHA, coverage check before the quiz, statechart transitions per ticket, pluggable tracker lookup, a hand-off to `ship`, and model invocation enabled.
 
 ## mattpocock/skills license
 

@@ -1,0 +1,34 @@
+[
+  {
+    "query": "Review the branch payouts/03-retry since the integration branch, against its ticket.",
+    "should_trigger": true
+  },
+  {
+    "query": "QA the CSV export integration branch and tick off the acceptance criteria with evidence.",
+    "should_trigger": true
+  },
+  {
+    "query": "Is ticket 'Message delivery 02' really done? Check it against the spec and the verify skill before we open the PR.",
+    "should_trigger": true
+  },
+  {
+    "query": "ship finished the refunds tickets; run the review now.",
+    "should_trigger": true
+  },
+  {
+    "query": "Write the PR description for this branch.",
+    "should_trigger": false
+  },
+  {
+    "query": "Model-check this payout approval state machine.",
+    "should_trigger": false
+  },
+  {
+    "query": "Check this race between two admins approving the same disbursement.",
+    "should_trigger": false
+  },
+  {
+    "query": "Implement ticket 'Payouts 03 — retry on timeout'.",
+    "should_trigger": false
+  }
+]

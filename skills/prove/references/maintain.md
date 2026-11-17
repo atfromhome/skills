@@ -1,6 +1,6 @@
 # Maintain mode: drift loop
 
-Derived from pstack's maintain-formal-verification-skill. Use after merges, refactors, or design changes that touched verified code without rechecking it, or when QA reports drift.
+Derived from pstack's maintain-formal-verification-skill. Use after merges, refactors, or design changes that touched verified code without rechecking it, or when `ship` or `check` reports drift.
 
 ## Outcomes (one per check, say which)
 - **in sync**: nothing since the sync commit changes what the check describes; it passes.

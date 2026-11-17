@@ -1,0 +1,30 @@
+[
+  {
+    "query": "Write a PR body for my branch that adds chunked uploads.",
+    "should_trigger": true
+  },
+  {
+    "query": "Can you improve this PR description? Reviewers say they can't tell what changed.",
+    "should_trigger": true
+  },
+  {
+    "query": "Open a PR for this README fix and fill in the template.",
+    "should_trigger": true
+  },
+  {
+    "query": "Write the PR description for the message delivery ticket and list which invariants it covers.",
+    "should_trigger": true
+  },
+  {
+    "query": "Review this branch against the spec and run QA before the PR.",
+    "should_trigger": false
+  },
+  {
+    "query": "Implement ticket 'Payouts 03 — retry on timeout'.",
+    "should_trigger": false
+  },
+  {
+    "query": "Write a commit message for these staged changes.",
+    "should_trigger": false
+  }
+]

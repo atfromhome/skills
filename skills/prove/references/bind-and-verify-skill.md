@@ -9,7 +9,7 @@ The first ticket of a level-A spec (and of level B, for properties) makes the ve
 4. **Code-level properties.** Add stateful/property tests in the repo's PBT library (see `spec` references) that drive random sequences of the model's actions against the real code and assert the same `INV-n`. They may fail now if the behaviour is not built yet; mark them clearly (skipped/expected-fail per the language's idiom) and the ticket that builds the behaviour turns them on.
 5. **Generate the project-local verify skill** in the repo's skills directory (config `paths.verify_skill`; match where the repo keeps agent skills: `.agents/skills/`, `.claude/skills/`, `.cursor/skills/`…). Use the template below. Real commands, paths, nouns; no placeholders.
 6. **Prove it.** Follow the generated skill once as a cold agent would, on a scratch change that breaks an invariant in real code (or in the model if the code does not exist yet). It must catch it. Drop the scratch change and confirm the check is back to its starting point.
-7. PR with: the model, tests, verify skill, the run output, and the break you used. No product behaviour change.
+7. Commit on the ticket branch and hand back to `ship`, which sends it to `check`. The PR (written with `pr`) carries the model, tests, verify skill, the run output, and the break you used. No product behaviour change.
 
 ## Verify skill template
 

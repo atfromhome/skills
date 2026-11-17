@@ -35,15 +35,15 @@ If TLC cannot run: **do not skip.** Record the gate as `blocked` on the spec wit
    - Violation: tell the counterexample as numbered steps in domain words, say which `INV-n` breaks and the harm in one sentence. The fix is a **design** change in the spec (with the human), not a weaker invariant. Update spec and model, rerun.
    - Pass: say what the pass covers (constants, bounds, fairness, what the model leaves out).
 6. **Record the gate on the spec** with `references/gate-record.md` (a comment with marker `<!-- vflow:formal-gate -->`): result, tool versions, model text, statechart Mermaid, invariant mapping, bounds, broken-variant evidence, spec revision. Set the gate label (`passed`, `failed`, `blocked`). **Pause** if failed or blocked: the human decides the design change or waiver.
-7. Hand off: passed → `slice` (the first ticket will be **bind**).
+7. Hand off: passed → `slice` (the first ticket will be **bind**), then `ship` builds the tickets.
 
 ## Bind mode (prefactor ticket)
 
-Follow `references/bind-and-verify-skill.md`: commit the gate's model under the repo's model path, map every action to the code that performs it (one atomic step in code = one action), add the code-level property/stateful tests, generate a project-local `verify-<area>` skill with a coverage record and sync commit, and prove the skill catches a scratch break in real code. Product behaviour does not change in this ticket. Work on a branch; never push to a protected branch.
+Follow `references/bind-and-verify-skill.md`: commit the gate's model under the repo's model path, map every action to the code that performs it (one atomic step in code = one action), add the code-level property/stateful tests, generate a project-local `verify-<area>` skill with a coverage record and sync commit, and prove the skill catches a scratch break in real code. Product behaviour does not change in this ticket. Work on a branch; never push to a protected branch. Bind runs inside `ship` as the body of ticket 01; when it is done, hand back to `ship`, which sends the ticket to `check` and then works the next frontier.
 
 ## Maintain mode
 
-Follow `references/maintain.md`: find the verify skills, run them as-is, read every change to covered code since the sync commit, update the model from the code (not from the result), rerun, replay any counterexample against real code, and classify each check as in sync / updated / bug / blocked. Edit only verification files; product fixes go in a separate change. A spec-level design change also re-runs gate mode and refreshes the gate record.
+Follow `references/maintain.md`: find the verify skills, run them as-is, read every change to covered code since the sync commit, update the model from the code (not from the result), rerun, replay any counterexample against real code, and classify each check as in sync / updated / bug / blocked. Edit only verification files; product fixes go in a separate change. A spec-level design change also re-runs gate mode and refreshes the gate record. Afterwards: product fixes for a **bug** go back to `ship`; a branch held by `check` for drift goes back to `check` on the new SHA.
 
 ## Never
 

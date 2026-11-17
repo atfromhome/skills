@@ -30,5 +30,9 @@
   {
     "query": "Model-check the payout state machine.",
     "should_trigger": false
+  },
+  {
+    "query": "Implement ticket 'Pledge reminder 02 — send reminder'.",
+    "should_trigger": false
   }
 ]

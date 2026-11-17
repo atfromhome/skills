@@ -4,14 +4,14 @@ Part of the **vflow** skill family (verified flow). Licensed MIT, like its upstr
 
 ## Derived from
 
-Orchestration of the flow formed by mattpocock/skills (`wayfinder`, `to-spec`, `to-tickets`) and pstack (`statechart`, `create-formal-verification-skill`, `maintain-formal-verification-skill`) by Matt Pocock and Lauren Tan.
+Orchestration of the flow formed by mattpocock/skills (`wayfinder`, `to-spec`, `to-tickets`, `implement`, `implement-spec`, `code-review`) and pstack (`statechart`, `create-formal-verification-skill`, `maintain-formal-verification-skill`) by Matt Pocock and Lauren Tan.
 
 Upstream snapshots read: mattpocock/skills @ `5863806dd4e15c63174bee4e7515a4256792ecfa`, cursor/plugins (pstack) @ `bf0c7cd80abdbf7fe47b634978a7d1b4071f71a7`.
 Authoring followed the guidance in anthropics/skills `skill-creator` (Apache-2.0); no files from it are included.
 
 ## Changes
 
-New orchestrator: routing table (including a `grill` step before the spec), verification levels A/B/C, tracker-as-source-of-truth with pluggable adapters and orchestrator mirroring, implementer/QA hooks, branch protection rules.
+New orchestrator: routing table (including a `grill` step before the spec, and `ship`, `check`, and `pr` after the tickets), verification levels A/B/C, tracker-as-source-of-truth with pluggable adapters and orchestrator mirroring, implementer/QA hooks, branch protection rules.
 
 ## mattpocock/skills license
 

@@ -1,0 +1,46 @@
+{
+  "skill_name": "ship",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Implement 'Message delivery 02 — late delivery report corrects a sweep failure'. Ticket 01 is merged into message-delivery/integration and the gate on 'Message delivery status — spec' is PASSED on the current revision.",
+      "expected_output": "Single-ticket mode: states the ticket title, confirms gate and ticket 01, branches from the integration branch, writes the first failing tests from the acceptance criteria and INV-1/INV-4 at the spec's seam (turning on pending property tests), implements, runs typecheck and tests, commits to the ticket branch, hands off to check.",
+      "files": [],
+      "expectations": [
+        "Fetches the ticket through the tracker and states its title before starting",
+        "Confirms the latest formal-gate record is PASSED and current, and that ticket 01 is done",
+        "Branches from the integration branch, not main",
+        "First tests come from the ticket's acceptance criteria and the INV-n they cite, at the spec's seam, and fail before the code is written",
+        "Turns on the pending property tests this ticket owns",
+        "Runs typecheck and single tests during the work and the full suite plus verify-message-delivery at the end, quoting fresh output",
+        "Commits to the ticket branch only and hands off to check"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Implement the whole 'Order refunds — spec'. Its latest formal-gate comment says FAILED and the label is formal-gate:failed.",
+      "expected_output": "Refuses to start: level-A spec without a current passed gate; routes to prove gate mode; writes no code.",
+      "files": [],
+      "expectations": [
+        "Reads the latest vflow:formal-gate record and the gate label",
+        "Refuses to start implementation and says the gate is failed",
+        "Routes to prove in gate mode",
+        "Creates no branch, commit, or code"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Implement the whole 'Donation report CSV export — spec' (level B, tickets 01–04 published; 02 and 03 are both blocked only by 01; 04 is blocked by 02 and 03). Push it to main when done.",
+      "expected_output": "Whole-spec mode: task graph, ticket 01 property tests first, integration branch, draft PR after first merge, fresh subagent per ticket in its own worktree for 02 and 03 in parallel, then 04; refuses to push to main; hands off to check.",
+      "files": [],
+      "expectations": [
+        "Builds the task graph and names ticket 01 as the only first frontier",
+        "Ticket 01 adds the property tests for each PROP-n before any behaviour",
+        "Creates an integration branch and opens a draft PR after the first merge",
+        "Runs 02 and 03 as fresh subagents, each in its own worktree and branch, then 04 after both merge",
+        "Refuses to push to or merge into main",
+        "Hands the integration branch to check at the end"
+      ]
+    }
+  ]
+}

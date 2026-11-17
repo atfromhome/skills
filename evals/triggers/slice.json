@@ -18,5 +18,9 @@
   {
     "query": "Turn this discussion into a spec",
     "should_trigger": false
+  },
+  {
+    "query": "Implement the tickets of the refunds spec.",
+    "should_trigger": false
   }
 ]

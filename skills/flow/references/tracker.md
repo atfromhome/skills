@@ -25,12 +25,13 @@ When the repo's doc defines its own labels, title formats, claim commands, branc
 | Read issue body + comments | all |
 | Create issue with labels | spec, slice, chart |
 | Edit issue body | spec (revisions), chart (map index) |
-| Add comment (with a hidden marker such as `<!-- vflow:formal-gate -->` or `<!-- vflow:decision-summary -->`) | grill, prove, QA |
+| Add comment (with a hidden marker such as `<!-- vflow:formal-gate -->` or `<!-- vflow:decision-summary -->`) | grill, prove, check |
 | Add/remove label | all (status axes) |
 | Link sub-issue to parent | slice, chart |
 | Native "blocked by" edge | slice, chart |
-| Query children / frontier (open, unblocked, unassigned) | slice, chart, status |
-| Assign (claim) | chart, implementer |
+| Query children / frontier (open, unblocked, unassigned) | slice, chart, ship, status |
+| Assign (claim) | chart, ship |
+| Open a PR / mark a draft ready, linked so merging closes the ticket | ship (draft, whole spec), check, pr |
 
 If an operation is missing on the tracker, use a body convention (a `## Parent` or `## Blocked by` section listing linked issues) and say so; the human must then check the graph by hand.
 
@@ -44,16 +45,17 @@ If an operation is missing on the tracker, use a body convention (a `## Parent` 
 - Sub-issue: `gh api --method POST repos/{owner}/{repo}/issues/PARENT/sub_issues -F sub_issue_id=CHILD_DB_ID`
 - Blocked-by: `gh api --method POST repos/{owner}/{repo}/issues/CHILD/dependencies/blocked_by -F issue_id=BLOCKER_DB_ID`
 - If the sub-issue or dependency endpoints return 404/403 (older GHES, permissions), fall back to body sections and report it.
+- PRs: `gh pr create --base <base> --head <branch> --body-file pr.md` (`--draft` for a whole-spec integration PR), `gh pr ready N`, `gh pr edit N --body-file pr.md`. A `Closes #N` line per ticket in the PR body closes it when the PR merges into the default branch; PRs into an integration branch do not auto-close, so list them on the integration PR too.
 - Attachments: GitHub issues have no file upload API. Put models in fenced code blocks in the gate comment; if too long (>60k chars), push them on a throwaway branch `vflow/model/<slug>` (never the default branch, never opened as a PR) and link the blob at its commit SHA.
 
 ### GitLab (`glab`)
-Issues + `glab issue note`; child items via tasks or "related/blocks" links (`/blocks #N` quick action in a note). Labels the same.
+Issues + `glab issue note`; child items via tasks or "related/blocks" links (`/blocks #N` quick action in a note). Labels the same. Merge requests: `glab mr create --draft`; `Closes #N` in the description closes on merge.
 
 ### Linear / Jira / others (MCP connector or CLI)
-Use the connector's create/comment/label/relations tools. Sub-issue = parent/child; blocked-by = "blocks" relation. Attach the model as a file if the tracker supports attachments, otherwise inline.
+Use the connector's create/comment/label/relations tools. Sub-issue = parent/child; blocked-by = "blocks" relation. Link PRs the way the tracker's forge integration closes work (issue key or magic words in the PR title or body, branch name); say which you used. Attach the model as a file if the tracker supports attachments, otherwise inline.
 
 ### Local markdown (last resort)
-`.scratch/<feature-slug>/spec.md`, `.scratch/<feature-slug>/gate.md`, `.scratch/<feature-slug>/issues/NN-<slug>.md` numbered in dependency order with `Blocked by:` lines. Labels (spec, level, gate status, ready) are a `**Labels:**` line under the title, edited in place; the gate record is a new `<!-- vflow:formal-gate -->` section appended to `gate.md` per run. Warn that repo-stored planning files persist by accident; keep `.scratch/` git-ignored unless the repo says otherwise.
+`.scratch/<feature-slug>/spec.md`, `.scratch/<feature-slug>/gate.md`, `.scratch/<feature-slug>/issues/NN-<slug>.md` numbered in dependency order with `Blocked by:` lines. Labels (spec, level, gate status, ready) are a `**Labels:**` line under the title, edited in place; the gate record is a new `<!-- vflow:formal-gate -->` section appended to `gate.md` per run. `check` sets `**Status:** in-review` when it opens the PR; `done` is set by the human (or their automation) when it merges. Warn that repo-stored planning files persist by accident; keep `.scratch/` git-ignored unless the repo says otherwise.
 
 ## 4. Mirroring into an orchestrator
 

@@ -1,0 +1,42 @@
+{
+  "skill_name": "pr",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a PR body for my branch that switches the image upload from a single request to chunked uploads.",
+      "expected_output": "Summary with one small visual (call tree or diff sketch), Evidence before/after, Merge Danger with door and blast radius; no invented evidence.",
+      "files": [],
+      "expectations": [
+        "Reads the log and diff against the base branch",
+        "Uses the Summary / Evidence / Merge Danger structure",
+        "Summary includes one small visual such as a call tree or diff sketch",
+        "Evidence shows before and after, or says what evidence is missing instead of inventing it",
+        "Merge Danger names one-way or two-way door and a blast radius"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Write the PR description for 'Message delivery 02 — late delivery report corrects a sweep failure'. It came from our vflow ticket and check already passed.",
+      "expected_output": "Standard template plus the optional Verification section: ticket and spec links, level, checked SHA, INV-n coverage table, closing keyword.",
+      "files": [],
+      "expectations": [
+        "Uses the Summary / Evidence / Merge Danger structure",
+        "Adds a Verification section linking the ticket and spec with level and checked SHA",
+        "Lists the INV-n covered with the test or model invariant",
+        "Puts the tracker's closing keyword for the ticket on its own line"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Open a PR for this README typo fix. The repo has a .github/pull_request_template.md.",
+      "expected_output": "Fills the repo's template with a short summary, light evidence, two-way door; opens the PR with the forge CLI from the branch; does not merge.",
+      "files": [],
+      "expectations": [
+        "Reads and fills the repo's PR template headings",
+        "Keeps the body short; no unnecessary visuals",
+        "Opens the PR from the current branch with a body file",
+        "Does not merge or push to main"
+      ]
+    }
+  ]
+}

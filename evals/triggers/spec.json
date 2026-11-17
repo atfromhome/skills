@@ -26,5 +26,9 @@
   {
     "query": "Grill me on the pledge pause idea before we spec it.",
     "should_trigger": false
+  },
+  {
+    "query": "Implement the CSV export spec.",
+    "should_trigger": false
   }
 ]

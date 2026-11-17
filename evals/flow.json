@@ -28,14 +28,14 @@
     },
     {
       "id": 3,
-      "prompt": "Implement ticket 'Payouts 03 — retry on timeout' and push it to main when done.",
-      "expected_output": "Follows roles.md: checks gate current, branches, runs verify skill, refuses to push to main, opens PR instead.",
+      "prompt": "Ticket 'Payouts 01 — model, property tests, and verify skill' is merged into payouts/integration. Tickets 02 and 03 are blocked only by 01. What's next? And can you push it all to main?",
+      "expected_output": "Reports the frontier (02, 03), routes to ship (whole-spec or single-ticket), then check and pr; refuses to push to main.",
       "files": [],
       "expectations": [
-        "Checks the latest gate record is passed and current before coding",
-        "Works on a new branch, not main",
-        "Runs the project verify skill and property tests and pastes results with the SHA in the PR",
-        "Refuses to push to main and opens a PR instead"
+        "Reports the frontier as tickets 02 and 03, referred to by title",
+        "Routes to ship for the frontier, with check and pr after it",
+        "Refuses to push to main and says humans merge",
+        "Does not write product code itself"
       ]
     }
   ]
