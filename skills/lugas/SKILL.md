@@ -76,7 +76,7 @@ Untuk format: pakai judul dan daftar untuk struktur, bukan cetak tebal atau huru
 
 Pola untuk tombol, error, empty state, sukses, konfirmasi, form, dan notifikasi ada di `references/ui-copy.md`. Tiga aturan yang paling sering dipakai:
 - Tombol memakai kata kerja yang menyebut hasilnya: "Kirim laporan", bukan "OK" atau "Submit".
-- Pesan error berisi tiga hal: apa yang terjadi, tanpa menyalahkan, dan apa yang bisa dilakukan sekarang. Kalau gagalnya di tengah alur (unggah, form, pembayaran), tambahkan apa yang tetap aman: "Data lainnya tetap tersimpan."
+- Pesan error berisi tiga hal: apa yang terjadi, tanpa menyalahkan, dan apa yang bisa dilakukan sekarang. Kalau gagalnya di tengah alur (unggah, form, pembayaran) dan memang ada yang tetap aman, sebutkan: "Data lainnya tetap tersimpan." Jangan menulis kalimat ini kalau belum pasti benar.
 - Konfirmasi untuk tindakan berbahaya menyebut akibatnya dengan spesifik.
 
 ## Kalimat yang terasa Indonesia
