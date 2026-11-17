@@ -57,7 +57,7 @@ Round format and a worked example: `references/rounds.md`.
 - **Test with scenarios.** Invent concrete edge cases that force the boundaries between concepts to be precise.
 - **Cross-check the code.** When the human states how something works, check whether the code agrees and surface contradictions.
 - **Update the glossary inline and lazily.** When a term is resolved, write it to the glossary right then, not in a batch; create the file only when the first term is resolved. No implementation details in it. Format: `references/glossary-format.md`.
-- **Offer an ADR only when all three hold:** hard to reverse, surprising without context, and the result of a real trade-off. Write it only if the human accepts. Format: `references/adr-format.md`.
+- **Offer an ADR only when all three hold:** hard to reverse, surprising without context, and the result of a real trade-off. Offer it as a numbered question in the very next round after the decision is settled, alongside that round's frontier; never save it for an extra round once the frontier is otherwise empty. Write it only if the human accepts. Format: `references/adr-format.md`.
 
 Follow the repo's own glossary and ADR locations if it has them. Do not commit to or push a protected branch; tell the human which files changed.
 
