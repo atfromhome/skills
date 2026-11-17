@@ -1,0 +1,34 @@
+[
+  {
+    "query": "Grill me on adding a payment reminder status to donation pledges before we write the spec.",
+    "should_trigger": true
+  },
+  {
+    "query": "I have a rough idea for letting donors pause a recurring pledge. Interview me until we agree on how it should work.",
+    "should_trigger": true
+  },
+  {
+    "query": "Stress-test my plan for moving receipt emails to a queue. What am I missing?",
+    "should_trigger": true
+  },
+  {
+    "query": "This request is too vague to spec yet; help me think the CSV import through first.",
+    "should_trigger": true
+  },
+  {
+    "query": "Write the spec for the pledge reminder feature we just agreed on.",
+    "should_trigger": false
+  },
+  {
+    "query": "We're migrating the whole monolith to microservices over the next quarter and have no idea where to start. Chart it.",
+    "should_trigger": false
+  },
+  {
+    "query": "Break the pledge reminder spec into tickets.",
+    "should_trigger": false
+  },
+  {
+    "query": "Model-check the payout state machine.",
+    "should_trigger": false
+  }
+]

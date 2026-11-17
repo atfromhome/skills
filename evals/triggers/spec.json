@@ -22,5 +22,9 @@
   {
     "query": "Slice the refunds spec",
     "should_trigger": false
+  },
+  {
+    "query": "Grill me on the pledge pause idea before we spec it.",
+    "should_trigger": false
   }
 ]

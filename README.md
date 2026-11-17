@@ -8,20 +8,23 @@ Agent skills (Agent Skills format: a folder with `SKILL.md`) for planning and sh
 |---|---|
 | [`flow`](skills/flow) | Orchestrator: where is this work in the flow, what runs next, tracker adapters, implementer and QA rules |
 | [`chart`](skills/chart) | Optional on-ramp for big, foggy, multi-session efforts: a map of decision tickets (adapted from wayfinder) |
+| [`grill`](skills/grill) | Interview before the spec for small but fuzzy features: design-tree rounds, glossary and ADRs, a Decision summary with a provisional level (adapted from grilling and domain-modeling) |
 | [`spec`](skills/spec) | Spec with a mandatory verification level A/B/C and plain-language invariants (adapted from to-spec) |
 | [`prove`](skills/prove) | Formal gate before implementation: TLA+ model checked by TLC plus a statechart; bind and maintain modes |
 | [`slice`](skills/slice) | Tracer-bullet tickets, prefactor first, published as sub-issues (adapted from to-tickets) |
 
 ```
-[chart] → spec → (level A) prove: gate → slice (01 = prefactor, prove: bind)
+[chart | grill] → spec → (level A) prove: gate → slice (01 = prefactor, prove: bind)
         → implement → QA reruns verification on the PR SHA → drift → prove: maintain
 ```
+
+`chart` is for multi-session efforts with a foggy route; `grill` is for a one-session feature whose decisions are still open. Both are optional and end in `spec`.
 
 Verification levels: **A** state machines, status transitions, concurrency, money (TLA+ gate first); **B** rules and calculations (property-based tests); **C** simple UI/CRUD (regular tests). When unsure, A.
 
 ## Install
 
-Copy all five folders from `skills/` side by side into your agent's skills directory (for example `.agents/skills/`, `.claude/skills/`, or `.cursor/skills/`). They refer to each other by name.
+Copy all six folders from `skills/` side by side into your agent's skills directory (for example `.agents/skills/`, `.claude/skills/`, or `.cursor/skills/`). They refer to each other by name.
 
 ## Requirements (level A only)
 

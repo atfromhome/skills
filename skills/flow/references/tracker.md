@@ -25,7 +25,7 @@ When the repo's doc defines its own labels, title formats, claim commands, branc
 | Read issue body + comments | all |
 | Create issue with labels | spec, slice, chart |
 | Edit issue body | spec (revisions), chart (map index) |
-| Add comment (with a hidden marker such as `<!-- vflow:formal-gate -->`) | prove, QA |
+| Add comment (with a hidden marker such as `<!-- vflow:formal-gate -->` or `<!-- vflow:decision-summary -->`) | grill, prove, QA |
 | Add/remove label | all (status axes) |
 | Link sub-issue to parent | slice, chart |
 | Native "blocked by" edge | slice, chart |

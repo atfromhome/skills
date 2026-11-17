@@ -18,5 +18,9 @@
   {
     "query": "Break the billing spec into tickets",
     "should_trigger": false
+  },
+  {
+    "query": "Grill me on adding a pledge reminder; it's a small feature but I'm unsure about the details.",
+    "should_trigger": false
   }
 ]

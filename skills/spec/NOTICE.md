@@ -11,7 +11,7 @@ Authoring followed the guidance in anthropics/skills `skill-creator` (Apache-2.0
 
 ## Changes
 
-Added mandatory verification level (A formal / B property / C example) with classification questions, invariant (INV-n) and property (PROP-n) ids, a level-A model scope section, a formal-gate pause, a PBT library table, pluggable tracker lookup instead of setup-matt-pocock-skills, and model invocation enabled.
+Added mandatory verification level (A formal / B property / C example) with classification questions, invariant (INV-n) and property (PROP-n) ids, a level-A model scope section, a formal-gate pause, a PBT library table, pluggable tracker lookup instead of setup-matt-pocock-skills, hand-off to `grill` for open decisions and a Decision summary as input, and model invocation enabled.
 
 ## mattpocock/skills license
 

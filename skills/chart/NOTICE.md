@@ -11,7 +11,7 @@ Authoring followed the guidance in anthropics/skills `skill-creator` (Apache-2.0
 
 ## Changes
 
-Condensed into SKILL.md + references; inlined lightweight resolution guidance for each ticket type so it works without the companion grilling/domain-modeling/research/prototype skills; added the verification scan and level flags in Notes, TLA+/statechart sketches as prototype tickets, a guard against agents granting themselves execution rights, hand-off to spec, pluggable tracker lookup.
+Condensed into SKILL.md + references; inlined lightweight resolution guidance for each ticket type so it works without the companion grilling/domain-modeling/research/prototype skills; added the verification scan and level flags in Notes, TLA+/statechart sketches as prototype tickets, a guard against agents granting themselves execution rights, hand-off to spec, pluggable tracker lookup; `grilling` tickets are resolved with the family's `grill` skill when installed.
 
 ## mattpocock/skills license
 

@@ -1,0 +1,46 @@
+{
+  "skill_name": "grill",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Grill me on adding a payment reminder status to donation pledges before we write the spec.",
+      "expected_output": "Context dump invite, scope check says it fits one session, numbered rounds with recommended answers, glossary challenge on 'status', facts looked up in code, no code or spec, Decision summary with level hint A and reasons, waits for confirmation.",
+      "files": [],
+      "expectations": [
+        "Invites a context dump (or reads the existing context) before the first round",
+        "States a scope check verdict (fits one session) before detailed questions",
+        "Asks rounds of numbered questions, each with a recommended answer worded so 'yes' accepts it, and holds dependent questions for a later round",
+        "Looks up facts (existing pledge statuses, cron, payment webhook) in the code instead of asking the user",
+        "Challenges or sharpens the term 'status' against the glossary (pledge lifecycle vs reminder state)",
+        "Writes no code, no spec, and no tickets",
+        "Ends with a Decision summary listing settled decisions, open assumptions (none), glossary terms touched, ADRs, and a provisional level A with Q1-Q3 reasons",
+        "Asks the user to confirm shared understanding and hands off to spec"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Stress-test my plan: we'll build a community platform with chat, file storage, billing and analytics.",
+      "expected_output": "Scope check flags several independent subsystems, recommends chart (or splitting and grilling one sub-feature), and stops for the human's answer without detailed rounds.",
+      "files": [],
+      "expectations": [
+        "Flags that the plan has several independent subsystems and is too big for one session",
+        "Recommends chart (or decomposition into sub-features grilled one at a time)",
+        "Stops and waits for the human before asking detailed design questions",
+        "Does not create a map, spec, or tickets itself"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "We're on the issue 'Donor receipts as PDF'. Help me think it through before the spec: generate on request or pre-generate yearly?",
+      "expected_output": "Presents the design fork as one question with 2-3 approaches, trade-offs and a recommendation; offers an ADR only if all three criteria hold; level hint B or C with reason; after confirmation posts the summary as a decision-summary comment on the issue.",
+      "files": [],
+      "expectations": [
+        "Presents the generation choice as one frontier question with 2-3 approaches, trade-offs, and a recommendation first",
+        "Offers an ADR only if the decision is hard to reverse, surprising, and a real trade-off (otherwise skips it)",
+        "Gives a provisional level hint (B or C, or A if it finds states or exactly-once effects) with a reason using the spec verification-level questions",
+        "After the user confirms, posts the Decision summary as a comment with the vflow:decision-summary marker on the tracker issue instead of creating a new issue",
+        "Hands off to spec"
+      ]
+    }
+  ]
+}

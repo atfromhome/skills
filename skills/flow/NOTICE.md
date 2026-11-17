@@ -11,7 +11,7 @@ Authoring followed the guidance in anthropics/skills `skill-creator` (Apache-2.0
 
 ## Changes
 
-New orchestrator: routing table, verification levels A/B/C, tracker-as-source-of-truth with pluggable adapters and orchestrator mirroring, implementer/QA hooks, branch protection rules.
+New orchestrator: routing table (including a `grill` step before the spec), verification levels A/B/C, tracker-as-source-of-truth with pluggable adapters and orchestrator mirroring, implementer/QA hooks, branch protection rules.
 
 ## mattpocock/skills license
 

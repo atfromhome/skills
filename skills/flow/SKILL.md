@@ -1,6 +1,6 @@
 ---
 name: flow
-description: "Verified-flow orchestrator: take a feature from idea to merge-ready tickets with verification decided BEFORE code. Routes work through wayfinding (big, foggy efforts), a spec with a mandatory verification level, a formal pre-implementation gate (TLA+/TLC model plus statechart) for state machines, concurrency, or money, and tracer-bullet tickets; also tells implementers and QA how to honour the verified design. Use whenever someone wants to plan, spec, ticket, implement, or QA a feature through an issue tracker, mentions FSMs, status transitions, race conditions, payments, invariants, formal verification, or asks 'where are we' or 'what's next' on a feature, spec or ticket, even if they do not name this skill."
+description: "Verified-flow orchestrator: take a feature from idea to merge-ready tickets with verification decided BEFORE code. Routes work through wayfinding (big, foggy efforts), a grilling interview (small but fuzzy features), a spec with a mandatory verification level, a formal pre-implementation gate (TLA+/TLC model plus statechart) for state machines, concurrency, or money, and tracer-bullet tickets; also tells implementers and QA how to honour the verified design. Use whenever someone wants to plan, spec, ticket, implement, or QA a feature through an issue tracker, mentions FSMs, status transitions, race conditions, payments, invariants, formal verification, or asks 'where are we' or 'what's next' on a feature, spec or ticket, even if they do not name this skill."
 license: "MIT. Derived from mattpocock/skills and cursor/plugins pstack; see NOTICE.md"
 metadata:
   version: "0.1.0"
@@ -9,11 +9,12 @@ metadata:
 
 # flow: verified flow
 
-One workflow, five skills. This one decides **where a piece of work is** and **which skill runs next**. The others do the work:
+One workflow, six skills. This one decides **where a piece of work is** and **which skill runs next**. The others do the work:
 
 | Phase | Skill | Output |
 |---|---|---|
 | 0. Orientation (only for big, foggy efforts) | `chart` | A map of decision tickets that ends in a clear destination |
+| 0b. Deepen context (fits one session, decisions still open or fuzzy) | `grill` | A confirmed Decision summary with a provisional verification level |
 | 1. Spec | `spec` | Spec issue with a **verification level** and plain-language invariants/properties |
 | 2. Formal gate (level A only) | `prove` | TLA+ model + statechart that TLC passes, attached to the spec |
 | 3. Tickets | `slice` | Vertical slices, prefactor first, published as sub-issues in dependency order |
@@ -30,7 +31,7 @@ Load the next skill by name when you reach its phase. Do not copy its steps here
    - **B — property:** rules or calculations without a state machine. Property-based tests in the repo's language, properties written in the spec first.
    - **C — example:** simple UI/CRUD. Regular tests plus QA.
    If unsure, choose A. Levels can combine (A covers the flow, B covers a calculation inside it).
-4. **Stop for a human at the two pause points:** the seams check in `spec` and the ticket quiz in `slice`. Also stop when the formal gate is blocked or fails. Never answer the human's side yourself.
+4. **Stop for a human at the pause points:** the scope check and the shared-understanding confirmation in `grill`, the seams check in `spec`, and the ticket quiz in `slice`. Also stop when the formal gate is blocked or fails. Never answer the human's side yourself.
 5. **Never push to or merge into the default branch** (`main`, `master`, `trunk`, `*/trunk`, or whatever the repo protects). Work on branches; humans merge.
 6. **Never skip a gate silently.** Missing tools, a failing check, or a stale model are reported on the spec/ticket and to the human. Only a human can waive a gate, and the waiver is recorded with a reason.
 
@@ -38,14 +39,15 @@ Load the next skill by name when you reach its phase. Do not copy its steps here
 
 Read the issue (or conversation) and pick the first row that matches:
 
-1. The effort is larger than one session and the route is unclear → `chart`. A cleared map hands off to step 2.
-2. The deciding is done but there is no spec issue, or the spec lacks a verification level → `spec`.
-3. Spec is level A and has no current **passed** (or human-waived) gate record → `prove` in **gate** mode.
-4. Spec is ready (level B/C, or level A with a current gate record) and has no tickets → `slice`.
-5. A ticket is being implemented or reviewed → `references/roles.md`.
-6. Code or design changed under an existing model, or QA reports the model no longer matches the code → `prove` in **maintain** mode.
+1. The effort is larger than one session and the route is unclear → `chart`. A cleared map hands off to step 3.
+2. The effort fits one session but key decisions are still open or fuzzy (no confirmed Decision summary, or the human asks to be grilled) → `grill`. A confirmed summary hands off to step 3.
+3. The deciding is done but there is no spec issue, or the spec lacks a verification level → `spec`.
+4. Spec is level A and has no current **passed** (or human-waived) gate record → `prove` in **gate** mode.
+5. Spec is ready (level B/C, or level A with a current gate record) and has no tickets → `slice`.
+6. A ticket is being implemented or reviewed → `references/roles.md`.
+7. Code or design changed under an existing model, or QA reports the model no longer matches the code → `prove` in **maintain** mode.
 
-"Current" gate record: its recorded spec revision matches the spec's current Testing Decisions and invariants. If the invariants changed after the gate, the gate is stale; go back to row 3.
+"Current" gate record: its recorded spec revision matches the spec's current Testing Decisions and invariants. If the invariants changed after the gate, the gate is stale; go back to row 4.
 
 ## Status reporting
 
