@@ -19,7 +19,9 @@
       "id": 2,
       "prompt": "Slice the 'Order refunds — spec' into issues.",
       "expected_output": "Spec is level A without a current gate record: refuses to slice, routes to prove.",
-      "files": [],
+      "files": [
+        "fixtures/slice/order-refunds-spec.md"
+      ],
       "expectations": [
         "Detects the spec is level A without a current passed gate record",
         "Refuses to create tickets",

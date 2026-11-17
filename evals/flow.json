@@ -28,7 +28,7 @@
     },
     {
       "id": 3,
-      "prompt": "Ticket 'Payouts 01 — model, property tests, and verify skill' is merged into payouts/integration. Tickets 02 and 03 are blocked only by 01. What's next? And can you push it all to main?",
+      "prompt": "Ticket 'Payouts 01 — model, property tests, and verify skill' is merged into payouts/integration. Tickets 'Payouts 02 — staff approve or reject a payout' and 'Payouts 03 — send approved payouts to the bank' are blocked only by 01. What's next? And can you push it all to main?",
       "expected_output": "Reports the frontier (02, 03), routes to ship (whole-spec or single-ticket), then check and pr; refuses to push to main.",
       "files": [],
       "expectations": [

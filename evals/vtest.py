@@ -46,7 +46,7 @@ Balas HANYA JSON valid, tanpa teks lain dan tanpa ```:
 
 
 FOLLOWUP = """[Jawaban user, simulasi] Tidak ada konteks tambahan selain yang sudah kamu temukan. Saya setuju dengan semua rekomendasimu (semua ya). Kalau kamu minta konfirmasi pemahaman atau summary: ya, sudah benar."""
-INTERACTIVE = {"grill": 5, "chart": 3, "spec": 3, "slice": 2, "check": 2}
+INTERACTIVE = {"grill": 5, "chart": 5, "spec": 3, "ship": 3, "slice": 2, "check": 2}
 
 
 def claude(prompt, args, tools, stream=False, resume=None):
@@ -224,7 +224,7 @@ if __name__ == "__main__":
     ap.add_argument("--model", default=None)
     ap.add_argument("--only", default=None)
     ap.add_argument("--max-turns", type=int, default=12)
-    ap.add_argument("--turns", type=int, default=None, help="jumlah giliran percakapan; default 5 untuk grill, 3 chart/spec, 2 slice/check, 1 lainnya")
+    ap.add_argument("--turns", type=int, default=None, help="jumlah giliran percakapan; default 5 untuk grill/chart, 3 spec/ship, 2 slice/check, 1 lainnya")
     ap.add_argument("--timeout", type=int, default=600)
     a = ap.parse_args()
     {"setup": setup, "triggers": triggers, "behavior": behavior, "report": report}[a.cmd](a)

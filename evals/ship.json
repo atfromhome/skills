@@ -5,7 +5,9 @@
       "id": 1,
       "prompt": "Implement 'Message delivery 02 — late delivery report corrects a sweep failure'. Ticket 01 is merged into message-delivery/integration and the gate on 'Message delivery status — spec' is PASSED on the current revision.",
       "expected_output": "Single-ticket mode: states the ticket title, confirms gate and ticket 01, branches from the integration branch, writes the first failing tests from the acceptance criteria and INV-1/INV-4 at the spec's seam (turning on pending property tests), implements, runs typecheck and tests, commits to the ticket branch, hands off to check.",
-      "files": [],
+      "files": [
+        "fixtures/ship/message-delivery-02.md"
+      ],
       "expectations": [
         "Fetches the ticket through the tracker and states its title before starting",
         "Confirms the latest formal-gate record is PASSED and current, and that ticket 01 is done",
