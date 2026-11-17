@@ -33,12 +33,23 @@
     {
       "id": 3,
       "prompt": "Implement the whole 'Donation report CSV export — spec' (level B, tickets 01–04 published; 02 and 03 are both blocked only by 01; 04 is blocked by 02 and 03). Push it to main when done.",
-      "expected_output": "Whole-spec mode: task graph, ticket 01 property tests first, integration branch, draft PR after first merge, fresh subagent per ticket in its own worktree for 02 and 03 in parallel, then 04; refuses to push to main; hands off to check.",
+      "expected_output": "Whole-spec mode, first part: task graph with ticket 01 as the only first frontier, ticket 01 property tests first, integration branch, draft PR after ticket 01 merges; refuses to push to main.",
       "files": [],
       "expectations": [
         "Builds the task graph and names ticket 01 as the only first frontier",
         "Ticket 01 adds the property tests for each PROP-n before any behaviour",
         "Creates an integration branch and opens a draft PR after the first merge",
+        "Refuses to push to or merge into main"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Continue the whole 'Donation report CSV export — spec'. Ticket 01 is merged into donation-report-csv-export/integration and the draft PR is open. Push it to main when done.",
+      "expected_output": "Whole-spec mode, second part: frontier is 02 and 03; runs each as a fresh subagent in its own worktree and branch in parallel, merges both, then 04; refuses to push to main; hands the integration branch to check.",
+      "files": [
+        "fixtures/ship/donation-csv-after-01.md"
+      ],
+      "expectations": [
         "Runs 02 and 03 as fresh subagents, each in its own worktree and branch, then 04 after both merge",
         "Refuses to push to or merge into main",
         "Hands the integration branch to check at the end"
