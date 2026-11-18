@@ -1,0 +1,338 @@
+{
+  "version": 1,
+  "runtime": {
+    "provider": "claude"
+  },
+  "skills": [
+    {
+      "name": "chart",
+      "url": "https://github.com/atfromhome/skills/tree/main/skills/chart"
+    },
+    {
+      "name": "check",
+      "url": "https://github.com/atfromhome/skills/tree/main/skills/check"
+    },
+    {
+      "name": "flow",
+      "url": "https://github.com/atfromhome/skills/tree/main/skills/flow"
+    },
+    {
+      "name": "grill",
+      "url": "https://github.com/atfromhome/skills/tree/main/skills/grill"
+    },
+    {
+      "name": "lugas",
+      "url": "https://github.com/atfromhome/skills/tree/main/skills/lugas"
+    },
+    {
+      "name": "pr",
+      "url": "https://github.com/atfromhome/skills/tree/main/skills/pr"
+    },
+    {
+      "name": "prove",
+      "url": "https://github.com/atfromhome/skills/tree/main/skills/prove"
+    },
+    {
+      "name": "ship",
+      "url": "https://github.com/atfromhome/skills/tree/main/skills/ship"
+    },
+    {
+      "name": "slice",
+      "url": "https://github.com/atfromhome/skills/tree/main/skills/slice"
+    },
+    {
+      "name": "spec",
+      "url": "https://github.com/atfromhome/skills/tree/main/skills/spec"
+    }
+  ],
+  "statuses": [
+    {
+      "key": "backlog",
+      "name": "Backlog",
+      "category": "backlog",
+      "color": "#6b7280",
+      "icon": "",
+      "description": "Parked. Assigning an issue here never starts an agent run.",
+      "system": true
+    },
+    {
+      "key": "todo",
+      "name": "Todo",
+      "category": "todo",
+      "color": "#6b7280",
+      "icon": "",
+      "description": "Queued for work. Moving an issue here starts the assigned agent.",
+      "system": true
+    },
+    {
+      "key": "refinement",
+      "name": "Refinement",
+      "category": "todo",
+      "color": "#000000",
+      "icon": "half",
+      "description": "",
+      "system": false
+    },
+    {
+      "key": "ready",
+      "name": "Ready",
+      "category": "todo",
+      "color": "#6b7280",
+      "icon": "three_quarters",
+      "description": "",
+      "system": false
+    },
+    {
+      "key": "in_progress",
+      "name": "In Progress",
+      "category": "in_progress",
+      "color": "#f59e0b",
+      "icon": "",
+      "description": "Actively being worked on.",
+      "system": true
+    },
+    {
+      "key": "in_review",
+      "name": "In Review",
+      "category": "in_review",
+      "color": "#22c55e",
+      "icon": "",
+      "description": "Work delivered, waiting on human review. Finalizes the autopilot run.",
+      "system": true
+    },
+    {
+      "key": "qa",
+      "name": "QA",
+      "category": "in_progress",
+      "color": "#3b82f6",
+      "icon": "",
+      "description": "",
+      "system": false
+    },
+    {
+      "key": "blocked",
+      "name": "Blocked",
+      "category": "blocked",
+      "color": "#ef4444",
+      "icon": "",
+      "description": "Stalled on an external dependency.",
+      "system": true
+    },
+    {
+      "key": "done",
+      "name": "Done",
+      "category": "done",
+      "color": "#3b82f6",
+      "icon": "",
+      "description": "Completed.",
+      "system": true
+    },
+    {
+      "key": "cancelled",
+      "name": "Cancelled",
+      "category": "cancelled",
+      "color": "#6b7280",
+      "icon": "",
+      "description": "Decided not to do.",
+      "system": true
+    }
+  ],
+  "agents": [
+    {
+      "name": "Imad",
+      "description": "Implementator Lead",
+      "instructions": "Kamu leader Implementator Squad. Tugasmu membagi pekerjaan, bukan mengerjakannya.\n- Jangan menulis kode, jangan mengubah file, jangan membuat PR.\n- Setiap issue harus merujuk ke ticket GitHub yang sudah melewati slice. Kalau tidak ada rujukan, atau ticket-nya masih kabur, minta kejelasan ke manusia. Jangan menebak.\n- Tunjuk satu anggota per langkah. Tulis komentarmu singkat.",
+      "model": "claude-sonnet-5-5",
+      "thinking_level": "",
+      "max_concurrent_tasks": 6,
+      "permission_mode": "public_to",
+      "public_to_workspace": true,
+      "avatar": "emoji:🐙",
+      "skills": [
+        "flow",
+        "lugas"
+      ]
+    },
+    {
+      "name": "Refiner",
+      "description": "Refinement",
+      "instructions": "Tugasmu mengubah ide menjadi ticket yang siap dikerjakan. Jangan menulis kode.\n- Kalau keputusannya masih kabur, jalankan grill. Tanya manusia per ronde, lalu tunggu jawabannya.\n- Kalau fiturnya terlalu besar untuk satu sesi, sarankan chart dan berhenti.\n- Setelah keputusannya jelas, tulis spec di GitHub Issues dengan skill spec, lengkap dengan level verifikasinya.\n- Pecah spec menjadi ticket dengan skill slice. Tunjukkan rencana pecahannya ke manusia sebelum ticket dipublikasikan.\n- Kalau spec level A, catat bahwa gate prove wajib lulus sebelum ticket dikerjakan.\n- Setelah ticket terbit, tulis link-nya di komentar dan pindahkan issue ke in_review.\n- Jangan assign issue ke squad sendiri. Manusia yang memutuskan.",
+      "model": "claude-opus-5-5",
+      "thinking_level": "medium",
+      "max_concurrent_tasks": 6,
+      "permission_mode": "public_to",
+      "public_to_workspace": true,
+      "avatar": "emoji:🍀",
+      "skills": [
+        "grill",
+        "lugas",
+        "slice",
+        "spec"
+      ]
+    },
+    {
+      "name": "Qeea",
+      "description": "Quality Assurance",
+      "instructions": "Tugasmu menguji PR dari sisi pengguna, bukan mereview kode lagi.\n- Baca acceptance criteria di ticket dan invariant (INV-n) di spec.\n- Jalankan aplikasi atau test di branch PR, lalu cek tiap acceptance criteria satu per satu.\n- Laporkan di komentar sebagai daftar centang: lolos, gagal, atau tidak bisa diuji, beserta buktinya.\n- Kalau ada yang gagal, tulis langkah untuk mereproduksinya, lalu kembalikan ke Implementator Squad dengan @-mention.\n- Jangan mengubah kode dan jangan merge.",
+      "model": "claude-sonnet-5-5",
+      "thinking_level": "",
+      "max_concurrent_tasks": 6,
+      "permission_mode": "public_to",
+      "public_to_workspace": true,
+      "avatar": "emoji:🐳",
+      "skills": [
+        "check"
+      ]
+    },
+    {
+      "name": "Comapp",
+      "description": "Code Mapper",
+      "instructions": "Kamu hanya membaca kode. Jangan mengubah file, membuat branch, atau commit.\nUntuk ticket yang diberikan, laporkan di komentar issue:\n- File dan fungsi yang kemungkinan disentuh.\n- Pola yang sudah ada di repo dan sebaiknya diikuti, beserta contoh file.\n- Test yang sudah ada di area itu.\n- Risiko: bagian rapuh, invariant (INV-n) dari spec yang terkait, atau hal yang bertentangan dengan ticket.\nTulis singkat dan konkret, dengan path file. Jangan mengusulkan implementasi lengkap.",
+      "model": "claude-haiku-5-5",
+      "thinking_level": "high",
+      "max_concurrent_tasks": 6,
+      "permission_mode": "public_to",
+      "public_to_workspace": true,
+      "avatar": "emoji:🤖",
+      "skills": []
+    },
+    {
+      "name": "Lemen",
+      "description": "Implementer",
+      "instructions": "Kerjakan satu ticket dengan skill ship, test-first, di branch ticket sendiri.\n- Baca laporan Code Mapper di issue sebelum mulai.\n- Jangan push ke main dan jangan merge.\n- Kalau ticket bertentangan dengan kode atau spec, berhenti dan laporkan. Jangan mengubah ruang lingkup.\n- Setelah selesai, laporkan di komentar: nama branch, test yang ditambahkan, dan hasil test.\n- Kalau dikembalikan oleh Reviewer, perbaiki hanya temuan yang disebut, lalu laporkan lagi.",
+      "model": "claude-sonnet-5-5",
+      "thinking_level": "high",
+      "max_concurrent_tasks": 6,
+      "permission_mode": "public_to",
+      "public_to_workspace": true,
+      "avatar": "emoji:🐙",
+      "skills": [
+        "lugas",
+        "ship"
+      ]
+    },
+    {
+      "name": "Revie",
+      "description": "Reviewer",
+      "instructions": "",
+      "model": "claude-opus-5-5",
+      "thinking_level": "",
+      "max_concurrent_tasks": 6,
+      "permission_mode": "public_to",
+      "public_to_workspace": true,
+      "avatar": "emoji:🔥",
+      "skills": [
+        "check",
+        "lugas",
+        "pr"
+      ]
+    }
+  ],
+  "squad": {
+    "name": "Implementator Squad",
+    "description": "",
+    "instructions": "Urutan kerja tiap issue:\n\n1. Pemeta kode: petakan kode yang terkait ticket.\n2. Eksekutor: kerjakan ticket berdasarkan laporan pemeta.\n3. Reviewer: periksa hasil eksekutor.\n   - Kalau ada temuan, kembalikan ke eksekutor beserta daftar temuannya.\n   - Kalau lolos, reviewer membuat PR.\n4. Kalau PR sudah ada dan CI lolos, pindahkan issue ke in\\_review.\n\nAturan:\n\n- Kalau eksekutor dan reviewer sudah bolak-balik 3 kali tanpa lolos, berhenti dan minta keputusan manusia.\n- Kalau ada anggota yang melaporkan \"blocked\" (misalnya Java/TLC tidak ada, akses kurang, atau spec bertentangan dengan kode), minta keputusan manusia.\n- Tidak ada yang merge ke main. Status done diurus manusia.",
+    "leader": "Imad",
+    "members": [
+      {
+        "agent": "Comapp",
+        "role": ""
+      },
+      {
+        "agent": "Lemen",
+        "role": ""
+      },
+      {
+        "agent": "Revie",
+        "role": ""
+      }
+    ]
+  },
+  "workflow": {
+    "name": "Delivery",
+    "description": "Build, review, then QA before done",
+    "steps": [
+      {
+        "status": "backlog",
+        "handler": {
+          "type": "none"
+        },
+        "instructions": ""
+      },
+      {
+        "status": "todo",
+        "handler": {
+          "type": "none"
+        },
+        "instructions": ""
+      },
+      {
+        "status": "refinement",
+        "handler": {
+          "type": "agent",
+          "agent": "Refiner"
+        },
+        "instructions": "Jalankan instruksi Refiner untuk issue ini. Setelah ticket terbit di GitHub, pindahkan ke Ready. Kalau ide ini ternyata tidak layak dikerjakan, kembalikan ke Backlog beserta alasannya.",
+        "next": "ready",
+        "back": "backlog"
+      },
+      {
+        "status": "ready",
+        "handler": {
+          "type": "member",
+          "member": "@owner"
+        },
+        "instructions": ""
+      },
+      {
+        "status": "in_progress",
+        "handler": {
+          "type": "squad",
+          "squad": "Implementator Squad"
+        },
+        "instructions": "Kerjakan ticket GitHub yang dirujuk issue ini sesuai instruksi squad. Kalau PR sudah ada dan CI lolos, pindahkan ke QA untuk ticket level A atau B, atau ke In Review untuk level C.",
+        "next": "qa",
+        "back": "backlog"
+      },
+      {
+        "status": "in_review",
+        "handler": {
+          "type": "member",
+          "member": "@owner"
+        },
+        "instructions": ""
+      },
+      {
+        "status": "qa",
+        "handler": {
+          "type": "agent",
+          "agent": "Qeea"
+        },
+        "instructions": "Uji PR terhadap acceptance criteria di ticket. Kalau semua lolos, pindahkan ke In review. Kalau ada yang gagal, kembalikan ke In progress dan @-mention Implementator Squad beserta langkah reproduksinya.",
+        "next": "in_review",
+        "back": "in_progress"
+      },
+      {
+        "status": "blocked",
+        "handler": {
+          "type": "none"
+        },
+        "instructions": ""
+      },
+      {
+        "status": "done",
+        "handler": {
+          "type": "none"
+        },
+        "instructions": ""
+      },
+      {
+        "status": "cancelled",
+        "handler": {
+          "type": "none"
+        },
+        "instructions": ""
+      }
+    ]
+  }
+}
